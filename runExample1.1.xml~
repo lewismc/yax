@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="net.sf.yax.ant.runExample1.2" default="all" basedir=".">
+	<property name="saxon6-5-3.dir" value="c:/develop/saxon6-5-3"/>
+	<path id="saxon6-5-3.classpath">
+		<pathelement location="${saxon6-5-3.dir}/saxon.jar"/>
+		<pathelement location="${saxon6-5-3.dir}/saxon-jdom.jar"/>
+	</path>
+	<path id="yax.classpath">
+		<pathelement location="."/>
+		<pathelement location="lib"/>
+		<pathelement location="configuration"/>
+		<pathelement location="lib/de.opsdesign.yax.core.jar"/>
+		<pathelement location="lib/de.opsdesign.yax.ant.jar"/>
+		<pathelement location="lib/xml-resolver-1.2.jar"/>
+		<path refid="saxon6-5-3.classpath"/>
+	</path>
+	<taskdef name="yax" classname="de.opsdesign.yax.tools.YaxTask">
+		<classpath refid="yax.classpath"/>
+	</taskdef>
+	<target name="all" depends="clear,runExample1.1"/>
+	<target name="runExample1.1">
+		<yax verbose="yes" in="examples/example1.1.xml" out="test/example1.1.output.ant.xml" script="examples/example1.1.xproc"/>
+	</target>
+	<target name="clear" description="delete all former ant output within test directory">
+		<delete>
+			<fileset dir="examples" includes="
+				*Trace.png
+        		"/>
+		</delete>
+		<delete>
+			<fileset dir="test" includes="
+			        *output.ant.xml,
+			        *Trace.png
+		        "/>
+		</delete>
+	</target>
+</project>

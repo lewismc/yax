@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+  <article xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeArticleInfo.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeWhatIs.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeQuickStart.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeFeatures.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeReference.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeRoadmap.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeExamples.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeTutorial.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeLinks.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludeLegal.xml"/>
+      <xi:include href="http://www.opsdesign.eu/examples/xIncludePoweredBy.xml"/>      
+  </article>

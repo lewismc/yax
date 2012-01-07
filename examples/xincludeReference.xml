@@ -1,0 +1,72 @@
+<section id="reference">
+   <title id="reference.title">Reference</title>
+   <section id="overview">
+      <title>Overview</title>
+      <para> Description </para>
+   </section>
+   <section id="section1">
+      <title>Title of Section1</title>
+      <figure id="name-of-figure1.png" float="0">
+         <title>Title of Figure1</title>
+         <mediaobject>
+            <imageobject role="html">
+               <imagedata fileref="figures/name-of-figure1.png" format="PNG"/>
+            </imageobject>
+            <imageobject role="fo">
+               <imagedata fileref="figures/name-of-figure1.png" scale="60" format="PNG"/>
+            </imageobject>
+         </mediaobject>
+      </figure>
+   </section>
+   <section id="prerequisites">
+      <title>Prerequisites</title>
+      <para> The following packages have to be available (installed) on an arbitrary location: </para>
+      <table id="prerequisites.table" frame="all">
+         <title>Required Packages</title>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="package" colwidth="1*"/>
+            <colspec colnum="2" colname="description" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry colname="package">
+                     <para>Package</para>
+                  </entry>
+                  <entry>
+                     <para>Usage</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry colname="package">
+                     <para> Package1 </para>
+                  </entry>
+                  <entry colname="description">
+                     <para> Description of Package1 </para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </section>
+   <section id="installation">
+      <title>Installation</title>
+      <para> Description </para>
+   </section>
+   <section id="configuration">
+      <title>Configuration</title>
+      <para> Description </para>
+   </section>
+   <section id="usage">
+      <title>Usage</title>
+      <para/>
+      <section id="useCase1">
+         <title>Title of useCase1</title>
+         <para> Description </para>
+      </section>
+      <section id="useCase2">
+         <title>Title of useCase2</title>
+         <para> Description ToDo </para>
+      </section>
+   </section>
+</section>

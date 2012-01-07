@@ -1,0 +1,77 @@
+<section id="links">
+  <title>Links</title>
+  <para> Description ToDo </para>
+</section>
+<section id="legal">
+  <title>Legal Notice</title>
+  <para>Software and documentation is released under the terms of the GNU LGPL license (see
+        <ulink url="http://www.gnu.org/copyleft/lesser.html"
+        >http://www.gnu.org/copyleft/lesser.html</ulink>) and comes without a warranty of any
+     kind.</para>
+  <para>Copyright © 2006 <ulink url="mailto:joerg.moebius@hamburg.de"
+     >joerg.moebius@hamburg.de</ulink>
+  </para>
+</section>
+<section id="poweredBy">
+  <title>Powered by</title>
+  <para>
+     <ulink url="http://sourceforge.net">
+        <inlinemediaobject>
+           <imageobject role="html">
+              <imagedata fileref="figures/sflogo.php.png" format="PNG"/>
+           </imageobject>
+           <imageobject role="fo">
+              <imagedata fileref="figures/sflogo.php.png" scale="50" format="PNG"/>
+           </imageobject>
+           <textobject>
+              <phrase>sourceforge logo</phrase>
+           </textobject>
+        </inlinemediaobject>
+     </ulink>
+  </para>
+  <para>
+     <ulink url="http://docbook.sourceforge.net/">
+        <inlinemediaobject>
+           <imageobject role="html">
+              <imagedata fileref="figures/docbook-website-logo.png" format="PNG"/>
+           </imageobject>
+           <imageobject role="fo">
+              <imagedata fileref="figures/docbook-website-logo.png" scale="50" format="PNG"/>
+           </imageobject>
+           <textobject>
+              <phrase>sourceforge logo</phrase>
+           </textobject>
+        </inlinemediaobject>
+     </ulink>
+  </para>
+  <para>
+     <ulink url="http://xmlgraphics.apache.org/fop//">
+        <inlinemediaobject>
+           <imageobject role="html">
+              <imagedata fileref="figures/apache-fop-logo.jpg" format="JPG"/>
+           </imageobject>
+           <imageobject role="fo">
+              <imagedata fileref="figures/apache-fop-logo.jpg" scale="50" format="JPG"/>
+           </imageobject>
+           <textobject>
+              <phrase>sourceforge logo</phrase>
+           </textobject>
+        </inlinemediaobject>
+     </ulink>
+  </para>
+  <para>
+     <ulink url="http://www.saxonica.com/index.html">
+        <inlinemediaobject>
+           <imageobject role="html">
+              <imagedata fileref="figures/saxonica_logo.gif" format="GIF"/>
+           </imageobject>
+           <imageobject role="fo">
+              <imagedata fileref="figures/saxonica_logo.gif" scale="50" format="GIF"/>
+           </imageobject>
+           <textobject>
+              <phrase>sourceforge logo</phrase>
+           </textobject>
+        </inlinemediaobject>
+     </ulink>
+  </para>
+</section>

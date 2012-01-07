@@ -1,0 +1,56 @@
+<section id="approach">
+   <title>Approach</title>
+   <para> The core idea of exampleProject1 is ...ToDo </para>
+   <section id="workingModel">
+      <title>Working Model</title>
+      <para> The core idea of exampleProject1 is ...ToDo </para>
+      <example id="workingModel.example.1">
+         <title> Title of workingModel example 1. </title>
+         <programlisting format="linespecific">
+...
+&lt;section id="main"&gt;
+  &lt;title&gt;DocBook.sml&lt;/title&gt;
+  &lt;subtitle&gt;
+    &lt;phrase <emphasis role="bold">lang="en"</emphasis>&gt;Generates a Multilingual ...&lt;/phrase&gt;
+    &lt;phrase <emphasis role="bold">lang="de"</emphasis>&gt;Generiert aus einer ...&lt;/phrase&gt;
+  &lt;/subtitle&gt;
+  &lt;section id="what.is"&gt;
+    &lt;title&gt;
+      &lt;phrase <emphasis role="bold">lang="en"</emphasis>&gt;What is DocBook.sml?&lt;/phrase&gt;
+      &lt;phrase <emphasis role="bold">lang="de"</emphasis>&gt;Was ist DocBook.sml?&lt;/phrase&gt;
+    &lt;/title&gt;
+      &lt;para <emphasis role="bold">lang="en"</emphasis>&gt;
+        sml stands for ...
+      &lt;/para&gt;
+      &lt;para <emphasis role="bold">lang="de"</emphasis>&gt;
+        sml steht für ...
+        also eine einzige ...
+      &lt;/para&gt;
+      ...
+  &lt;/section&gt;
+&lt;/section&gt;
+...
+			</programlisting>
+      </example>
+      <para> Some trailing words. </para>
+   </section>
+   <section id="technicalApproach">
+      <title>Technical Approach</title>
+      <para> DocBook.sml </para>
+      <itemizedlist>
+         <listitem>
+            <para> maintains a documentation template (see doc/install) and provides an easy
+               deployment mechanism (see ant-script addToProject.xml) </para>
+         </listitem>
+         <listitem>
+            <para> holds all procedural resources for generating the documentation-artifacts (see
+               doc/script) </para>
+         </listitem>
+         <listitem>
+            <para> abstracts from the underlaying subsystems resp. its actual versions (see
+               doc/conf/docbooksml.properties) </para>
+         </listitem>
+      </itemizedlist>
+      <para/>
+   </section>
+</section>

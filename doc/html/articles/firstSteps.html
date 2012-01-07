@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>OPS Design Java Project Archetype - </title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+                                            <img src=".././manual/images/yax-logo-medium.gif" alt="" />
+    
+            </span>
+                          <span id="bannerRight">
+    
+                                            <img src=".././manual/images/opsDesignGmbH-logo-medium.jpg" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+            <div class="xleft">
+        Last Published: 04-March-2008 12:28
+                      </div>
+            <div class="xright">      <a href="../">Yax</a>
+          |
+          <a href="../../">OPS Design GmbH</a>
+          |
+          <a href="http://maven.apache.org">Maven</a>
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+                   <h5>Quick links</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="../articles/features.html">Features</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/project/showfiles.php?group_id=160123">Download</a>
+        </li>
+              
+    <li class="none">
+              <strong>First Steps</strong>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <a href=".././manual/index.html">HTML</a>
+        </li>
+              
+    <li class="none">
+              <a href=".././manual/yax.pdf">PDF</a>
+        </li>
+              
+    <li class="none">
+              <a href=".././manual/index_de.html">German, HTML</a>
+        </li>
+              
+    <li class="none">
+              <a href=".././manual/yax_de.pdf">German, PDF</a>
+        </li>
+          </ul>
+          <h5>Modules</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="../articles/core.html">Core</a>
+        </li>
+              
+    <li class="none">
+              <a href="../articles/ant.html">Ant</a>
+        </li>
+          </ul>
+          <h5>Custom Steps</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="../articles/fop.html">Fop</a>
+        </li>
+          </ul>
+          <h5>Further Links</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/projects/yax">Yax at sourceforge.net</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/tracker/?atid=814586&group_id=160123&func=browse">Error Report</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://xproc.org/">XProc</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="../project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="../project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+            <img alt="Built by Maven" src="../images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+  Yax - First Steps
+
+  <div class="section">
+    <h2>Installation</h2>
+
+    <p>The following description refers to Version 0.11.0.</p>
+
+    <p>We assume</p>
+
+    <ul>
+      <li>
+        you are working on a Windows system,
+      </li>
+
+      <li>
+        you have got a Java runtime installed on your System,
+      </li>
+
+      <li>
+        you install Yax into your your <i><tt>&lt;installation
+        directory&gt;</i></tt> c:/test,
+      </li>
+
+      <li>
+        you install all aditional components/application into your
+        <i><tt>&lt;component directory&gt;</i></tt>
+        c:/develop.
+      </li>
+    </ul>
+
+    <p>Unzip the downloaded file into your <i><tt>&lt;installation
+    directory&gt;</i></tt>. After unzipping the file you will find a
+    subdirectory called yax_0.11.0.</p>
+
+    <p>So your <i><tt>&lt;home directory&gt;</i></tt> is
+    c:/test/yax_0.11.0.</p>
+  
+
+  <div class="section">
+    <h2>Run first Example</h2>
+
+    <p>Example1.1 is the most classic exercise for a pipeline processor: An
+    input of XML Data will be transformed by some cocatinated</p>
+
+    <p>XSLT scripts and persisted as an XML File. Fulfill the following
+    steps to proceed this example:</p>
+
+    <p>Go to the <i><tt>&lt;home directory&gt;</i></tt>.</p>
+
+    <p>Run runExample1.1.bat from the command line:</p>
+
+    <div class="source"><pre>c:\test\yax_0.11.0&gt;runExample1.1.bat</pre></div>
+
+    <p>You get something like:</p>
+
+    <div class="source"><pre>WARN   [Configuration] use Console Logger due to Log4J is not installed (resp. a
+ccessible)(running mode: command line)
+INFO   [Configuration] Using XML Catalog resolver class 'org.apache.xml.resolver
+.tools.ResolvingXMLFilter'.
+IOException: Cannot run program &quot;dot&quot;: CreateProcess error=2, Das System kann di
+e angegebene Datei nicht finden
+IOException: Cannot run program &quot;dot&quot;: CreateProcess error=2, Das System kann di
+e angegebene Datei nicht finden
+INFO   [root:yax.root] Reading input file 'c:\test\yax_0.11.0\examples\example1.
+1.xml' into Context '1'.
+WARN   [XSLT:trans1] system default transformer will be used due to transformer
+class 'com.icl.saxon.TransformerFactoryImpl' is not reachable
+INFO   [XSLT:trans1] Transforming with stylesheet 'transformation1.1.xsl' using
+'Saxon6'.
+WARN   [XSLT:trans2] system default transformer will be used due to transformer
+class 'com.icl.saxon.TransformerFactoryImpl' is not reachable
+INFO   [XSLT:trans2] Transforming with stylesheet 'transformation2.xsl' using 'S
+axon6'.
+WARN   [XSLT:trans3] system default transformer will be used due to transformer
+class 'com.icl.saxon.TransformerFactoryImpl' is not reachable
+INFO   [XSLT:trans3] Transforming with stylesheet 'transformation3.xsl' using 'S
+axon6'.
+INFO   [root:yax.root] Writing output file 'c:\test\yax_0.11.0\test\example1.1.o
+utput.cmd.xml' from Context '1'.
+INFO   Yax run sucessful completed.</pre></div>
+
+    <p>Within this bulk of messages you will find several warnings. The
+    actual messages you will receive, obviously depends on your installation.
+    Usually the majority of warnings appears due to missing installations of
+    (respective missing reference to) :</p>
+
+    <ul>
+      <li>
+        Log4j logging framework (&quot;... use Console Logger due to Log4J is
+        not installed...&quot;)
+      </li>
+
+      <li>
+        Graphviz Visualizer (&quot;Cannot run program &quot;dot&quot;...&quot;)
+      </li>
+
+      <li>
+        Saxon XML Processor (&quot;system default transformer will be used...
+        due to ... 'com.icl.saxon.TranformerFactoryImpl' is not
+        reachable&quot;)
+      </li>
+    </ul>
+
+    <p>For solving the problems refer to section &quot;Solving the Problems&quot;.
+    Although you should already find the following outputs:</p>
+
+    <ul>
+      <li>
+        <i><tt><i><tt>&lt;home
+        directory&gt;</i></tt></i></tt>/test/example1.1.output.cmd.xml
+
+        <p>is the data result of running the pipeline.</p>
+      </li>
+
+      <li>
+        <i><tt>&lt;home
+        directory&gt;</i></tt>/example1.1.config.xml
+
+        <p>is a part of Yax's logging. The file represents yax's
+        implementation and configuration status.</p>
+      </li>
+    </ul>
+
+    <p>After solving the Graphviz problem you will also get</p>
+
+    <ul>
+      <li>
+        <i><tt>&lt;home
+        directory&gt;</i></tt>/examples/example1.1.pipeTrace.png and
+        <i><tt>&lt;home
+        directory&gt;</i></tt>/examples/example1.1.portTrace.png
+
+        <p>are other parts of Yax's logging. The files depict the pipeline
+        graphically in different granularity (pipeTrace &gt; coarse grained
+        and port Trace &gt; fine grained).</p>
+      </li>
+    </ul>
+
+    <p>After solving all problems you should get a bulk of messages on the
+    console like:</p>
+
+    <div class="source"><pre> INFO [Configuration] Using XML Catalog resolver class 'org.apache.xml.resolver.
+tools.ResolvingXMLFilter'.
+ INFO [root:yax.root] Reading input file 'c:\test\yax_0.11.0\examples\example1.1
+.xml' into Context '1'.
+ INFO [XSLT:trans1] Transforming with stylesheet 'transformation1.1.xsl' using '
+Saxon6'.
+ INFO [XSLT:trans2] Transforming with stylesheet 'transformation2.xsl' using 'Sa
+xon6'.
+ INFO [XSLT:trans3] Transforming with stylesheet 'transformation3.xsl' using 'Sa
+xon6'.
+ INFO [root:yax.root] Writing output file 'c:\test\yax_0.11.0\test\example1.1.ou
+tput.cmd.xml' from Context '1'.
+ INFO Yax run sucessful completed.</pre></div>
+
+    <p>As last part of Yax's logging you will find a log file containing
+    the same bulk of messages you have seen on the console at:</p>
+
+    <ul>
+      <li>
+        <i><tt>&lt;home
+        directory&gt;</i></tt>/log/\yax.log.
+      </li>
+    </ul>
+  
+
+  <div class="section">
+    <h2>Run next Example</h2>
+
+    <p>Go to your <i><tt>&lt;home directory&gt;</i></tt>.</p>
+
+    <p>Run runExample8.bat.</p>
+
+    <p>You get something like:</p>
+
+    <p><div class="source"><pre> INFO [Configuration] Using XML Catalog resolver class 'org.apache.xml.resolver.
+tools.ResolvingXMLFilter'.
+Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: org/apache/fop/apps/F
+OPException
+        at java.lang.Class.forName0(Native Method)
+        at java.lang.Class.forName(Unknown Source)
+        at net.sf.yax.types.ComponentTypeFactory.getClassesFromDirectory(Compone
+ntTypeFactory.java:213)
+        at net.sf.yax.types.ComponentTypeFactory.retrieveImplementedTypes(Compon
+entTypeFactory.java:112)
+        at net.sf.yax.types.ComponentTypeFactory.&lt;init&gt;(ComponentTypeFactory.jav
+a:46)
+        at net.sf.yax.Implementation.&lt;init&gt;(Implementation.java:28)
+        at net.sf.yax.Implementation.getInstance(Implementation.java:35)
+        at net.sf.yax.Queue.setComponentType(Queue.java:78)
+        at net.sf.yax.Queue.init(Queue.java:53)
+        at net.sf.yax.YaxFactory$PipelineHandlerImpl.configure(YaxFactory.java:1
+362)
+        at net.sf.yax.Yax.run(Yax.java:42)
+        at net.sf.yax.Yax.main(Yax.java:31)</pre></div></p>
+
+    <p>This happens due to missing installation of, respective fault
+    reference to the Fop libraries.</p>
+
+    <p>So, if you install Fop (<a href="#???">http://xmlgraphics.apache.org/fop/</a>) into your
+    <i><tt>&lt;component directory&gt;</i></tt> you will receive
+    something like:</p>
+
+    <p><div class="source"><pre> INFO [Configuration] Using XML Catalog resolver class 'org.apache.xml.resolver.
+tools.ResolvingXMLFilter'.
+ INFO [Load:Load xml file] Reading input file 'c:\test\yax_0.11.0\examples\fop\x
+ml\projectteam.xml' into Context '2'.
+ INFO [XSLT:transform to fo] Transforming with stylesheet 'projectteam2fo.xsl' u
+sing 'Saxon6'.
+ INFO [FOP:write pdf] Writing output file 'c:\test\yax_0.11.0\test\example8.pdf'
+ from Context '2'.
+ INFO [root:yax.root] Writing output file 'c:\test\yax_0.11.0\.\yaxOutput.xml' f
+rom Context '2'.
+ INFO Yax run sucessful completed.</pre></div></p>
+
+    <p>As Fop is realized as a <i>custom step type</i>, refer
+    also to the section 'Solving the Problems'&gt;'Make Custom Types
+    available',</p>
+  
+
+  <div class="section">
+    <h2>Solving the Problems</h2>
+
+    <div class="section">
+      <h3>Make Log4j available</h3>
+
+      <p>For Yax the prefered logging framework is Log4j. Although Yax also
+      works without any configured logging system. Out of the box, yax writes
+      all log messages to the console. if Log4j is reachable for Yax, it will
+      be used.</p>
+
+      <p>So, for using the Log4j simply install it (http://logging.apache.org/log4j/) to your
+      <i><tt>&lt;component directory&gt;</i></tt>. The bat files
+      already contains a reference to the Log4j resources. If you prefer
+      another location for your components, modify the reference
+      accordingly.</p>
+
+      <div class="source"><pre>@echo off
+
+set cp=
+set cp=%cp%;lib\de.opsdesign.yax.core.jar
+set cp=%cp%;lib\xml-resolver-1.2.jar
+set cp=%cp%;configuration
+set cp=%cp%;.
+<i>set cp=%cp%;c:\develop\apache-log4j-1.2.15\log4j-1.2.15.jar</i>
+set cp=%cp%;c:\develop\saxon6-5-3\saxon.jar
+
+set script=examples/example1.1.xproc
+set input=examples/example1.1.xml
+set output=test/example1.1.output.cmd.xml
+
+java -classpath %cp% de.opsdesign.yax.Yax %script% %in% %out%
+</pre></div>
+
+      <p>Yax comes with a log4j customization. You find the
+      log4j.properties at <i><tt>&lt;installation
+      directory&gt;</i></tt>/configuration/log4j.properties.</p>
+    </div>
+
+    <div class="section">
+      <h3>Make XML Catalog available</h3>
+
+      <p>XML usually contains links to other local or remote resources.
+      References to DTDs or XML Schemas are good examples:</p>
+
+      <div class="source"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;yax:preferences xmlns:yax=&quot;http://www.opsdesign.de/yax/1.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+xsi:schemaLocation=&quot;http://www.opsdesign.de/yax/1.0 <i>http://www.opsdesign.de/yax/dtd/1.0/yaxpreferences.xsd</i>&quot;&gt;
+...
+&lt;yax:preferences&gt;
+</pre></div>
+
+      <p>Tools and applications uses these links to reference the linked
+      resources. Often such reference triggers a remote access to the linked
+      recources.</p>
+
+      <p>But sometimes such remote accesses are not possible or not
+      desired. There comes XML Catalog into play. XML Catalog defines (inter
+      alia) an open standard for mapping from URI to other URIs. By this way
+      you can avoid remote accesses without modifying your sources.</p>
+
+      <p>The following catalog is the content of XMLSpy's
+      CustomCatalog.xml. It maps the URI prefix of the preference schema to a
+      local directory.</p>
+
+      <div class="source"><pre>&lt;catalog xmlns=&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog Catalog.xsd&quot;&gt;
+  &lt;rewriteURI uriIdStartString=&quot;<i>http://www.opsdesign.de/yax/dtd/1.0/</i>&quot; rewritePrefix=&quot;<i>file://c:\test\yax_0.11.0\configuration\</i>&quot;/&gt;
+&lt;/catalog&gt;
+</pre></div>
+
+      <p>When you edit the preference.xml file now, for validating the file
+      XMLSpy references the local yaxpreferences.xsd at
+      c:\test\yax-0.11.0\config\yaxpreferences.xsd instead of the remote one
+      at http://www.opsdesign.de/yax/dtd/1.0/yaxpreferences.xsd.</p>
+    </div>
+
+    <div class="section">
+      <h3>Make Graphviz available</h3>
+
+      <p>Download (via <a href="#???">http://www.graphviz.org/</a>)
+      and install Graphviz as a normal application.</p>
+
+      <p>Add the Graphviz bin directory to your system path.</p>
+
+      <p>When you running our example now, you should not get the &quot;...could
+      not run &quot;dot&quot;...&quot; message any further, but should receive the
+      appropriate output.</p>
+    </div>
+
+    <div class="section">
+      <h3>Make Saxon 6.5.3 available</h3>
+
+      <p>For using the Saxon xml transformer download (http://www.saxonica.com/) it and place a
+      reference to the saxon.jar file into your classpath:</p>
+
+      <div class="source"><pre>@echo off
+
+set cp=
+set cp=%cp%;lib\de.opsdesign.yax.core.jar
+set cp=%cp%;lib\xml-resolver-1.2.jar
+set cp=%cp%;configuration
+set cp=%cp%;.
+set cp=%cp%;c:\develop\apache-log4j-1.2.15\log4j-1.2.15.jar
+<i>set cp=%cp%;c:\develop\saxon6-5-3\saxon.jar</i>
+set script=examples/example1.1.xproc
+set input=examples/example1.1.xml
+set output=test/example1.1.output.cmd.xml
+
+java -classpath %cp% de.opsdesign.yax.Yax %script% %in% %out%
+</pre></div>
+    </div>
+
+    <div class="section">
+      <h3>Make underlying components available for ant</h3>
+
+      <p>For using the Saxon (or some other) xml transformer different to
+      xalan, you simply add the necessary jars of that transformer to your
+      classpath.</p>
+
+      <p>But doing this with Ant you have to consider some classloader
+      particularities of ant... or simple act as described in the
+      following.</p>
+
+      <p>It is not enough to add the jars to the nested
+      classpath,<div class="source"><pre>&lt;project name=&quot;net.sf.yax.ant.runViaAnt&quot; default=&quot;all&quot; basedir=&quot;.&quot;&gt;
+<i>  &lt;property name=&quot;saxon6-5-3.dir&quot; value=&quot;c:/develop/saxon6-5-3&quot;/&gt;
+  &lt;path id=&quot;saxon6-5-3.classpath&quot;&gt;
+    &lt;pathelement location=&quot;${saxon6-5-3.dir}/saxon.jar&quot;/&gt;
+    &lt;pathelement location=&quot;${saxon6-5-3.dir}/saxon-jdom.jar&quot;/&gt;
+  &lt;/path&gt;
+</i>  &lt;path id=&quot;yax.classpath&quot;&gt;
+    &lt;pathelement location=&quot;.&quot;/&gt;
+    &lt;pathelement location=&quot;lib&quot;/&gt;
+    &lt;pathelement location=&quot;configuration&quot;/&gt;
+    &lt;pathelement location=&quot;lib/de.opsdesign.yax.core.jar&quot;/&gt;
+    &lt;pathelement location=&quot;lib/de.opsdesign.yax.ant.jar&quot;/&gt;
+    &lt;pathelement location=&quot;lib/xml-resolver-1.2.jar&quot;/&gt;
+
+<i>    &lt;path refid=&quot;saxon6-5-3.classpath&quot;/&gt;
+</i>  &lt;/path&gt;
+  &lt;taskdef name=&quot;yax&quot; classname=&quot;de.opsdesign.yax.tools.YaxTask&quot;&gt;
+<i>    &lt;classpath refid=&quot;yax.classpath&quot;/&gt;
+</i>  &lt;/taskdef&gt;
+  &lt;target name=&quot;all&quot; depends=&quot;clear,runExample1.2&quot;/&gt;
+  &lt;target name=&quot;runExample1.2&quot;&gt;
+    &lt;yax ...
+&lt;/project&gt;
+</pre></div></p>
+
+      <p>you also have to lead ant with the <i>-lib</i>
+      option to the location of the transformer binaries:</p>
+
+      <div class="source"><pre>c:\test\yax_0.11.0&gt;ant <i>-lib c:/develop/saxon6-5-3</i> -f runExample2.xml</pre></div>
+
+      <p>Who are interested in the background of this issue may refer to
+      <a href="#???">http://ant.apache.org/faq.html#delegating-classloader</a></p>
+    </div>
+
+    <div class="section">
+      <h3>Make Custom Types available</h3>
+
+      <p>Yax provides an easy way to extend the feature realm. Yax scans
+      the &lt;installation directory&gt; for a subdirectory called 'custom'
+      and loads all custom StepType and ComponentType classes found.</p>
+
+      <p>Beside the other subdirectories you find a directory called
+      'custom'. This directory is dedicated for cutom type classes. All type
+      classes Yax find in this directory, will be considered by initializing
+      the available types.</p>
+
+      <p>By adding this directory to your classpath you enable yax using
+      all custom types. The other way around, if it is omitted from the
+      classpath all custom won't be considered.</p>
+
+      <div class="source"><pre>@echo off
+
+set cp=
+set cp=%cp%;lib\de.opsdesign.yax.core.jar
+set cp=%cp%;lib\xml-resolver-1.2.jar
+<i>set cp=%cp%;custom</i>
+set cp=%cp%;configuration
+set cp=%cp%;.
+set cp=%cp%;c:\develop\apache-log4j-1.2.15\log4j-1.2.15.jar
+set cp=%cp%;c:\develop\saxon6-5-3\saxon.jar
+
+set fop.dir=c:\develop\fop-0.94
+
+set cp=%cp%;%fop.dir%\lib\avalon-framework-4.2.0.jar
+set cp=%cp%;%fop.dir%\lib\batik-all-1.6.jar
+set cp=%cp%;%fop.dir%\lib\commons-io-1.3.1.jar
+set cp=%cp%;%fop.dir%\lib\commons-logging-1.0.4.jar
+set cp=%cp%;%fop.dir%\lib\serializer-2.7.0.jar
+set cp=%cp%;%fop.dir%\lib\xalan-2.7.0.jar
+set cp=%cp%;%fop.dir%\lib\xercesImpl-2.7.1.jar
+set cp=%cp%;%fop.dir%\lib\xml-apis-1.3.02.jar
+set cp=%cp%;%fop.dir%\lib\xmlgraphics-commons-1.2.jar
+set cp=%cp%;%fop.dir%\build\fop.jar
+
+set script=examples/example8.xproc
+
+set params=
+set params=%params%-Dexamples.data.dir=examples/fop/xml 
+set params=%params%-Dexamples.script.dir=examples/fop/xslt 
+set params=%params%-Dtest.dir=test 
+set params=%params%-DxmlInput=projectteam.xml 
+set params=%params%-Dxml2foScript=projectteam2fo.xsl 
+set params=%params%-DpdfOutput=example8.pdf
+
+java -classpath %cp% de.opsdesign.yax.Yax %script% %params%
+</pre></div>
+
+      <p></p>
+    </div>
+  
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2008
+    
+          OPS Design GmbH
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

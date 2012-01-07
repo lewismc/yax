@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>OPS Design Java Project Archetype - Reactor Dependency Convergence</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+                                            <img src="./manual/images/yax-logo-medium.gif" alt="" />
+    
+            </span>
+                          <span id="bannerRight">
+    
+                                            <img src="./manual/images/opsDesignGmbH-logo-medium.jpg" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+            <div class="xleft">
+        Last Published: 04-March-2008 12:30
+                      </div>
+            <div class="xright">      <a href="">Yax</a>
+          |
+          <a href="../">OPS Design GmbH</a>
+          |
+          <a href="http://maven.apache.org">Maven</a>
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+                   <h5>Quick links</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="articles/features.html">Features</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/project/showfiles.php?group_id=160123">Download</a>
+        </li>
+              
+    <li class="none">
+              <a href="articles/firstSteps.html">First Steps</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="./manual/index.html">HTML</a>
+        </li>
+              
+    <li class="none">
+              <a href="./manual/yax.pdf">PDF</a>
+        </li>
+              
+    <li class="none">
+              <a href="./manual/index_de.html">German, HTML</a>
+        </li>
+              
+    <li class="none">
+              <a href="./manual/yax_de.pdf">German, PDF</a>
+        </li>
+          </ul>
+          <h5>Modules</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="articles/core.html">Core</a>
+        </li>
+              
+    <li class="none">
+              <a href="articles/ant.html">Ant</a>
+        </li>
+          </ul>
+          <h5>Custom Steps</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="articles/fop.html">Fop</a>
+        </li>
+          </ul>
+          <h5>Further Links</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/projects/yax">Yax at sourceforge.net</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://sourceforge.net/tracker/?atid=814586&group_id=160123&func=browse">Error Report</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://xproc.org/">XProc</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+              <a href="project-info.html">Project Information</a>
+                <ul>
+                  
+    <li class="none">
+              <a href="integration.html">Continuous Integration</a>
+        </li>
+                  
+    <li class="none">
+              <a href="dependencies.html">Dependencies</a>
+        </li>
+                  
+    <li class="none">
+              <strong>Dependency Convergence</strong>
+        </li>
+                  
+    <li class="none">
+              <a href="issue-tracking.html">Issue Tracking</a>
+        </li>
+                  
+    <li class="none">
+              <a href="mail-lists.html">Mailing Lists</a>
+        </li>
+                  
+    <li class="none">
+              <a href="license.html">Project License</a>
+        </li>
+                  
+    <li class="none">
+              <a href="project-summary.html">Project Summary</a>
+        </li>
+                  
+    <li class="none">
+              <a href="team-list.html">Project Team</a>
+        </li>
+                  
+    <li class="none">
+              <a href="source-repository.html">Source Repository</a>
+        </li>
+              </ul>
+        </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Reactor Dependency Convergence</h2><table class="bodyTable"><caption>Legend:</caption><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td>All projects share one version of the dependency.</td></tr><tr class="b"><td><img alt="error" src="images/icon_error_sml.gif" /></td><td>At least one project has a differing version of the dependency.</td></tr></table><table class="bodyTable"><caption>Statistics</caption><tr class="a"><th>Number of sub-projects:</th><td>4</td></tr><tr class="b"><th>Number of dependencies (NOD):</th><td>5</td></tr><tr class="a"><th>Number of unique artifacts (NOA):</th><td>5</td></tr><tr class="b"><th>Number of SNAPSHOT artifacts (NOS):</th><td>0</td></tr><tr class="a"><th>Convergence (NOD/NOA):</th><td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100%</b></td></tr><tr class="b"><th>Ready for Release (100% Convergence and no SNAPSHOTS):</th><td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>Success</b></td></tr></table>Dependencies used in sub-projects<div class="section"><h3>ant:ant</h3><table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table class="bodyTable"><tr class="b"><td>1.7.0</td><td><ol type="a"><li><a href="http://www.opsdesign.de.yax/de.opsdesign.yax.ant">de.opsdesign:de.opsdesign.yax.ant</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h3>junit:junit</h3><table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table class="bodyTable"><tr class="b"><td>4.4</td><td><ol type="a"><li><a href="http://www.opsdesign.de.yax/de.opsdesign.yax.ant">de.opsdesign:de.opsdesign.yax.ant</a></li><li><a href="http://www.opsdesign.de.yax/de.opsdesign.yax.core">de.opsdesign:de.opsdesign.yax.core</a></li><li><a href="http://www.opsdesign.de.yax">de.opsdesign:de.opsdesign.yax.fop</a></li><li><a href="http://www.opsdesign.de.yax">de.opsdesign:de.opsdesign.yax</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h3>log4j:log4j</h3><table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table class="bodyTable"><tr class="b"><td>1.2.9</td><td><ol type="a"><li><a href="http://www.opsdesign.de.yax/de.opsdesign.yax.core">de.opsdesign:de.opsdesign.yax.core</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h3>org.apache.xmlgraphics:fop</h3><table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table class="bodyTable"><tr class="b"><td>0.94</td><td><ol type="a"><li><a href="http://www.opsdesign.de.yax">de.opsdesign:de.opsdesign.yax.fop</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h3>xml-resolver:xml-resolver</h3><table class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table class="bodyTable"><tr class="b"><td>1.2</td><td><ol type="a"><li><a href="http://www.opsdesign.de.yax/de.opsdesign.yax.core">de.opsdesign:de.opsdesign.yax.core</a></li></ol></td></tr></table></td></tr></table></div></div>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2008
+    
+          OPS Design GmbH
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

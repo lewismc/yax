@@ -1,0 +1,78 @@
+<articleinfo>
+   <title> DocBook.sml Template </title>
+   <subtitle> Template for Multilingual Documenation (provided to use with Computer Aided
+      Translation) </subtitle>
+   <mediaobject>
+      <imageobject>
+         <imagedata fileref="figures/docbooksml-logo-large.png" scale="30" format="PNG"/>
+      </imageobject>
+   </mediaobject>
+   <author>
+      <firstname>Joerg</firstname>
+      <surname>Moebius</surname>
+   </author>
+   <copyright>
+      <year>2006</year>
+      <holder>joerg.moebius@hamburg.de</holder>
+   </copyright>
+   <releaseinfo>
+      <remark> description under construction </remark>
+   </releaseinfo>
+   <legalnotice>
+      <para> Software and documentation is released under the terms of the <ulink
+            url="http://www.gnu.org/copyleft/lesser.html">
+            <citetitle>GNU LGPL license</citetitle>
+         </ulink> and comes without a warranty of any kind. </para>
+   </legalnotice>
+   <pubdate>2006-12-03</pubdate>
+   <revhistory id="revisions">
+      <revision id="revision-0.1">
+         <revnumber>0.1</revnumber>
+         <date>2006-12-03</date>
+         <authorinitials>authorinitials</authorinitials>
+         <revdescription>
+            <itemizedlist>
+               <title>how to obtain an install?</title>
+               <para> you can find the complete documentation </para>
+               <listitem>
+                  <para>in the installation directory in the subdirectory 'doc/build'</para>
+               </listitem>
+               <listitem>
+                  <para>or at <ulink url="http://exampleProject1.example.org"
+                        >http://exampleProject1.example.org</ulink>
+                  </para>
+               </listitem>
+            </itemizedlist>
+            <itemizedlist>
+               <title>what's new</title>
+               <listitem>
+                  <para>list of news</para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>item1</para>
+                        <para>description of item1</para>
+                     </listitem>
+                     <listitem>
+                        <para>item2</para>
+                        <para>description of item2</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+            </itemizedlist>
+            <itemizedlist>
+               <title>known issues</title>
+               <para>This is an early release. If you expect everything to work perfectly, you
+                  will surely be let down. This list covers some of the known issues. If you
+                  figure out other issues (feature request and/or Bugs) please report it to the
+                  project site.</para>
+               <listitem>
+                  <para>issue1</para>
+               </listitem>
+               <listitem>
+                  <para>issue2</para>
+               </listitem>
+            </itemizedlist>
+         </revdescription>
+      </revision>
+   </revhistory>
+</articleinfo>

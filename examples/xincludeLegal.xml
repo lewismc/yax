@@ -1,0 +1,10 @@
+<section id="legal">
+  <title>Legal Notice</title>
+  <para>Software and documentation is released under the terms of the GNU LGPL license (see
+        <ulink url="http://www.gnu.org/copyleft/lesser.html"
+        >http://www.gnu.org/copyleft/lesser.html</ulink>) and comes without a warranty of any
+     kind.</para>
+  <para>Copyright © 2006 <ulink url="mailto:joerg.moebius@hamburg.de"
+     >joerg.moebius@hamburg.de</ulink>
+  </para>
+</section>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yax:preferences xmlns:yax="http://www.opsdesign.de/yax/1.0">
+    
+    <!-- commons -->
+    
+    <yax:process
+        suppress="no" 
+        standardImplementationWarnings="yes"
+        preferenceValueMessages="no"
+        >
+        <doc>
+            The preference baseURI is used when process has no external input and baseURI is not passed by parameter. 
+            default of baseURI: URI of the current directory
+            suppress="yes": pipeline will not be processed.(makes sense, when only config and/or graphic output is desired).
+            suppress="no" or absent: pipeline will be processed.
+            suppress default is "no".
+            standardImplementationWarnings="yes" or absent: yax writes a message when a component with a standard implementation appears.
+            standardImplementationWarnings="no": yax do not write a message when a component with a standard implementation appears.
+            standardImplementationWarnings default is "yes".
+            preferenceValueMessages="yes": yax writes a message when a component with a standard implementation appears.
+            preferenceValueMessages="no" or absent: yax do not write a message when a component with a standard implementation appears.
+            preferenceValueMessages default is "no".
+        </doc>
+    </yax:process>
+    
+    <yax:transformers default="Xalan" checkTransformerAvailability="yes">
+        <doc>
+            default="name": this transformer will be  
+            default absent: the system default transformer or (if exist) the transformer mentioned within the pipeline will be used.
+            checkTransformerAvailability="yes": availability of all transformers will be checked, logged and a WARNING will be thrown if someone is not available. 
+            checkTransformerAvailability="no" or absent: no check will be processed. 
+        </doc>
+        <yax:transformer name="Saxon6" classname="com.icl.saxon.TransformerFactoryImpl"/>
+        <yax:transformer name="Saxon8" classname="net.sf.saxon.TransformerFactoryImpl"/>
+        <yax:transformer name="Xalan" classname="org.apache.xalan.processor.TransformerFactoryImpl"/>
+        <yax:transformer name="XSLTC" classname="org.apache.xalan.xsltc.trax.TransformerFactoryImpl"/>
+    </yax:transformers>
+
+    <yax:foTransformers default="Fop" checkFoTransformerAvailability="no">
+        <doc>
+            !! takes currently no effect !!
+            default="name": this transformer will be  
+            default absent: the system default transformer or (if exist) the transformer mentioned within the pipeline will be used.
+            checkFoTransformerAvailability="yes": availability of all transformers will be checked, logged and a WARNING will be thrown if someone is not available. 
+            checkFoTransformerAvailability="no" or absent: no check will be processed. 
+        </doc>
+        <yax:foTransformer name="Fop" classname="org.apache.fop.apps.FopFactory"/>
+    </yax:foTransformers>
+    
+        
+    <!-- steps and constructs-->
+    
+    <yax:xinclude
+        defaultEncoding="ISO-8859-1"
+        >
+        <doc>
+            baseURI="." current directory 
+            baseURI="/" root directory 
+            defaultEncoding is placed into the XML declaration of the XInclude result. If source had no encoding attribute within its XML declaration. 
+        </doc>
+    </yax:xinclude>
+
+
+    <!-- graphics -->
+    
+    <yax:pipetrace automaticOutput="yes">
+        <doc>
+            automaticOutput="yes": png file of the compressed graphical representation of the pipeline will be written.
+            automaticOutput="no": no png file of the compressed graphical representation of the pipeline will be written.
+        </doc>
+        <yax:appearance>
+            <yax:explicitPort color="green"/>
+            <yax:explicitConnection color="green"/>
+            <yax:implicitPort color="blue"/>
+            <yax:implicitConnection color="blue"/>
+        </yax:appearance>
+    </yax:pipetrace>
+    
+    <yax:porttrace automaticOutput="no">
+        <doc>
+            automaticOutput="yes": png file of the graphical representation of the pipeline will be written.
+            automaticOutput="no": no png file of the graphical representation of the pipeline will be written.
+        </doc>
+    </yax:porttrace>
+    
+</yax:preferences>

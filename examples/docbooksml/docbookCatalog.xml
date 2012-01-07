@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <rewriteSystem systemIdStartString="http://www.oasis-open.org/" rewritePrefix="file:///c:/develop/" />
+	<rewriteURI uriStartString="http://www.oasis-open.org/" rewritePrefix="file:///c:/develop/" />
+	<rewriteURI uriStartString="http://docbook.sourceforge.net/release/xsl/current/" rewritePrefix="file:///c:/develop/docbook-xsl-1.71.1/" />
+	<rewriteSystem systemIdStartString="http://docbook.sourceforge.net/release/xsl/current/" rewritePrefix="file:///c:/develop/docbook-xsl-1.71.1/" />
+	<rewriteURI uriStartString="http://docbook.sourceforge.net/release/" rewritePrefix="file:///c:/develop/docbook-xsl-1.71.1/" />
+	<rewriteSystem systemIdStartString="http://docbook.sourceforge.net/release/" rewritePrefix="file:///c:/develop/docbook-xsl-1.71.1/" />
+</catalog>

@@ -1,0 +1,4300 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+   <articleinfo>
+      <title>
+         
+         <phrase lang="de">yax - eine XProc (XML Pipeline) Implementierung</phrase>
+      </title>
+      <mediaobject>
+         <imageobject>
+            <imagedata fileref="figures/yax-logo-large.gif" scale="30" format="GIF"/>
+         </imageobject>
+      </mediaobject>
+      <author>
+         <firstname>Joerg</firstname>
+         <surname>Moebius</surname>
+      </author>
+      <copyright>
+         <year>2006</year>
+         <year>2007</year>
+         <year>2008</year>
+         <holder>joerg.moebius@opsdesign.de</holder>
+      </copyright>
+      <releaseinfo>
+         <remark>
+            
+            <phrase lang="de"> Die Dokumentaton befindet sich im Aufbau. </phrase>
+         </remark>
+      </releaseinfo>
+      <legalnotice>
+         
+         <para lang="de"> Software und Dokumentation werden unter den Regeln der <ulink url="http://www.gnu.org/copyleft/lesser.html">
+               <citetitle>GNU LGPL LIzenz</citetitle>
+            </ulink> unter Ausschluss jeglicher Garantien und Gewährleistungen veröffentlicht.
+         </para>
+      </legalnotice>
+      <pubdate>2008-03-03</pubdate>
+      <revhistory id="revisions">
+         <revision id="revision-0.11.0">
+            <revnumber>0.11.0</revnumber>
+            <date>2008-03-03</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+            	<para>see Change Log.</para>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.10">
+            <revnumber>0.10</revnumber>
+            <date>2008-03-03</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+            	<para>Release 0.10 skipped.</para>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.9">
+            <revnumber>0.9</revnumber>
+            <date>2007-02-08</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>FOP (creates PDF files) created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>PDF (currently ident with FOP) created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>XSLT: now xml catalog aware</para>
+                        </listitem>
+                        <listitem>
+                           <para>XInclude: now xml catalog aware</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>container</title>
+                        <listitem>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            xml catalog awareness (by using Norman Walsh's xml commons resolver) 
+                           </para>
+                           <para>
+                            adapter for apache's commons logger (due to FOP)
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            examples revised / extended. 
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implementation of soap interface</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.8">
+            <revnumber>0.8</revnumber>
+            <date>2007-01-31</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>steps (especially XSLT, Load, Store) stabilized.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>container</title>
+                        <listitem>
+                           <para>container (especially try,choose) stabilized.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            ant interface created.
+                           </para>
+                           <para>
+                            yax can be used as an ant task and provides nested fileset feature.
+                            (applying a script an multiple input documents)
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            logger system created. 
+                           </para>
+                           <para>
+                            Log4jLogger is default. 
+                            ConsoleLogger is used when Log4jLogger is not available / not desired.
+                            in ant mode all Loggings are redirected to ant. 
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            some new preferences (see preferences.xml) created. 
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            examples revised / extended. 
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implementation of soap interface</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.7">
+            <revnumber>0.7</revnumber>
+            <date>2007-01-13</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>
+                      Problem with 
+                     </para>
+                     <para>
+                      Error message : net.sf.yax.types not valid
+                     </para>
+                     <para>
+                      configuration exception : net.sf.yax.types does not appear to be a valid package
+                     </para>
+                     <para>
+                      is solved. 
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.6">
+            <revnumber>0.6</revnumber>
+            <date>2007-01-11</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>
+                      Release 0.6 has the same content as release 0.5.
+                      It is launched due to a corrupted zip file in release 0.5. 
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.5">
+            <revnumber>0.5</revnumber>
+            <date>2007-01-11</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>XInclude created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Load created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Store created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>XSLT parameter passing implemented.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para/>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            run without passing input and output document location (run with Load and Store)
+                           </para>
+                           <para>
+                            baseUri as (possible) base for all location related operations. 
+                           </para>
+                           <para>
+                            properties / property files implemented.
+                           </para>
+                           <para>
+                            first attempt of an expression language implemented.
+                           </para>
+                           <para>
+                            preferences extended.
+                           </para>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>section 'using XInclude...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Load...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Load...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>sections 'Configuration...' and 'Usage...' revised and extended.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Feature, status table actualized and revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.4">
+            <revnumber>0.4</revnumber>
+            <date>2007-01-07</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>XSLT</para>
+                           <para>messages of transformer resolving revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para>Choose/When/Otherwise</para>
+                           <para>implemented.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Try/Group/Catch</para>
+                           <para>implemented.</para>
+                        </listitem>
+                        <listitem>
+                           <para>bridging of empty constructs</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>extension mechanism</para>
+                           <para>built-in components now in a jar</para>
+                           <para>seeking for custom components in the directory named custom</para>
+                        </listitem>
+                        <listitem>
+                           <para>preferences redesigned</para>
+                        </listitem>
+                        <listitem>
+                           <para>several new preferences (see preferences file)</para>
+                        </listitem>
+                        <listitem>
+                           <para>pipe trace graph now differenciates between implicit and explicit ports and connections</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>section 'using pipeline' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using XSLT' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Choose/When/Otherwise' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Try/Group/Catch' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'approach/extension mechanism' created</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.3">
+            <revnumber>0.3</revnumber>
+            <date>2007-01-03</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>Validate</para>
+                           <para>set to interims implementation</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>output of pipelineConfig now analog traces.</para>
+                        </listitem>
+                        <listitem>
+                           <para>automaticOutput of pipeTrace and portTrace know considered by application.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>revised and extended</para>
+                           <para>sections 'status', 'approach' revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.2">
+            <revnumber>0.2</revnumber>
+            <date>2007-01-01</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <listitem>
+                           <para>documentation revised and extended</para>
+                           <para>sections 'what is', 'status', 'quick start' revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+         <revision id="revision-0.1">
+            <revnumber>0.1</revnumber>
+            <date>2006-12-31</date>
+            <authorinitials>jmo</authorinitials>
+            <revdescription>
+               <itemizedlist>
+                  <title>how to obtain an install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <listitem>
+                           <para>first release</para>
+                           <para>experimental release to give an impression.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
+      </revhistory>
+   </articleinfo>
+   <section id="what.is">
+      <title id="what.is.title">
+         
+         <phrase lang="de">Was ist yax?</phrase>
+      </title>
+      
+      <para lang="de">
+         yax ist eine Java Implementiierung der XProc Spezifikation, einer XML Pipeline Sprache 
+         (<ulink url="http://www.w3.org/TR/2006/WD-xproc-20061117/">XProc: An XML Pipeline Language W3C Working Draft 17 November 2006</ulink>), 
+         mit der XProc Skripte wie das folgende verarbeitet werden können.
+      </para>
+      <programlisting format="linespecific">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT" 
+      yax:description="transforms 'a*' elements to 'b*' elmenents."&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans2" type="xproc:XSLT" 
+      yax:description="transforms 'b*' elements to 'c*' elmenents."&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt;
+      &lt;xproc:parameter name="transformer" value="Saxon6" /&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT" 
+      yax:description="transforms 'c*' elements to 'd*' elmenents."&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+      &lt;xproc:parameter name="transformer" value="XSLTC" /&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+
+            </programlisting>
+   </section>
+   <section id="quickStart">
+      <title>
+         
+         <phrase lang="de">Schnellstart</phrase>
+      </title>
+      <section id="quickstart.prerequisites">
+         <title>
+            
+            <phrase lang="de">Voraussetzungen</phrase>
+         </title>
+         
+         <para lang="de"> Folgende Software muss verfügbar (installiert) sein: </para>
+         <para>
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     Java (Version 5 or above) 
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     <ulink url="http://www.graphviz.org/">Graphviz - Graph Visualization Software</ulink>, 
+                  </para>
+                  <para>
+                     if want to use the visualisation features (pipeline trace, port trace).
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     further XSLT processors ( like saxon, xalan et al),
+                  </para>
+                  <para>
+                     if you want to use other processor(s) than the one (XSLTC), which comes with java.
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </para>
+      </section>
+      <section id="quickstart.installation">
+         <title>Installation</title>
+         
+         <para lang="de"> 
+            Laden Sie yax <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink> 
+            (hier der Menüpunkt 'download') herunter und entpacken Sie die Datei in ein beliebiges
+               <emphasis>&lt;yax-installation-directory&gt;</emphasis>. </para>
+      </section>
+      <section id="quickstart.configuration">
+         <title>
+            
+            <phrase lang="de">Konfiguration</phrase>
+         </title>
+         
+         
+      </section>
+      <section id="quickstart.firstRun">
+         <title>
+            
+            <phrase lang="de">Erster Einsatz</phrase>
+         </title>
+         
+         <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar net.sf.yax.Yax examples/example1.xproc examples/example1.xml 
+         </programlisting>
+         
+         <programlisting format="linespecific">
+            
+default transformer is set to system transformer.
+automaticOutput of pipe trace is set to 'yes'.
+automaticOutput of port trace is set to 'yes'.
+suppress of process is set to 'no'.
+step 'trans1': transformer Apache Software Foundation (Xalan XSLTC)(Version 1.0) is used.
+step 'trans2': transformer Apache Software Foundation (Xalan XSLTC)(Version 1.0) is used.
+step 'trans3': transformer Apache Software Foundation (Xalan XSLTC)(Version 1.0) is used.
+Yax run sucessful completed.
+                        
+         </programlisting>
+         
+         <itemizedlist>
+            <listitem>
+               <para>
+                  1) <emphasis>&lt;input filename&gt;</emphasis>.output.xml
+               </para>
+               
+            </listitem>
+            <listitem>
+               <para>
+                  2) <emphasis>&lt;pipeline filename&gt;</emphasis>.config.xml
+               </para>
+               
+               <programlisting format="linespecific">
+                  
+&lt;yax:configuration xmlns:yax="http://www.opsdesign.eu/yax/1.0"&gt;
+  &lt;!--configuration description generated by Yax - Do not edit by hand--&gt;
+  &lt;pipeline name="pipe1"&gt;
+    ..
+    &lt;step name="trans1"&gt;
+      &lt;output port="out" sequence="no" yax:creator="implementation.xproc.standard"/&gt;
+      &lt;input port="in" sequence="no" yax:creator="implementation.xproc.standard"&gt;
+        &lt;yax:connection port="in" yax:component="pipe1"/&gt;
+      &lt;/input&gt;
+      &lt;input port="stylesheet" sequence="no" yax:creator="implementation.xproc.standard"/&gt;
+      &lt;input href="examples/transformation1.xsl" port="stylesheet" yax:creator="pipeline"/&gt;
+    &lt;/step&gt;
+    ...
+  &lt;/pipeline&gt;
+  &lt;xproc:pipeline-library name="xproc.options" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+    &lt;xproc:declare-step-type type="Rename" yax:description=""&gt;
+      &lt;xproc:output port="out" select="" sequence="no" yax:bySourceRequired="no"/&gt;
+      &lt;xproc:input port="in" select="" sequence="no" yax:bySourceRequired="no"/&gt;
+      &lt;xproc:parameter name="name" required="yes" yax:values="{$any}"/&gt;
+      &lt;xproc:parameter name="select" required="yes" yax:values="{$xpathExpression}"/&gt;
+    &lt;/xproc:declare-step-type&gt;
+    ...
+  &lt;/xproc:pipeline-library&gt;
+  &lt;xproc:pipeline-library name="xproc.standard" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+    ...
+  &lt;/xproc:pipeline-library&gt;
+  &lt;xproc:pipeline-library name="yax.standard" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+    ...
+  &lt;/xproc:pipeline-library&gt;
+&lt;/yax:configuration&gt;
+                  
+               </programlisting>
+            </listitem>
+            <listitem>
+               <para>
+                  3) <emphasis>&lt;pipeline filename&gt;</emphasis>.pipeTrace.png
+               </para>
+               
+               <figure id="example1.pipeTrace.png" float="0">
+                  <title>
+                     
+                     <phrase id="example1.pipeTrace.png.de" lang="de">Komprimierte grafische Darstellung der Pipeline 'example1.xproc'.</phrase>
+                  </title>
+                  <mediaobject>
+                     <imageobject role="html">
+                        <imagedata fileref="figures/example1.pipeTrace.png" format="PNG"/>
+                     </imageobject>
+                     <imageobject role="fo">
+                        <imagedata fileref="figures/example1.pipeTrace.png" scale="50" format="PNG"/>
+                     </imageobject>
+                  </mediaobject>
+               </figure>
+            </listitem>
+            <listitem>
+               <para>
+                  4) <emphasis>&lt;pipeline filename&gt;</emphasis>.portTrace.png
+               </para>
+               
+               <figure id="example1.portTrace.png" float="0">
+                  <title>
+                     
+                     <phrase id="example1.portTrace.png.de" lang="de">Grafische Darstellung der Pipeline 'example1.xproc'.</phrase>
+                  </title>
+                  <mediaobject>
+                     <imageobject role="html">
+                        <imagedata fileref="figures/example1.portTrace.png" format="PNG"/>
+                     </imageobject>
+                     <imageobject role="fo">
+                        <imagedata fileref="figures/example1.portTrace.png" scale="40" format="PNG"/>
+                     </imageobject>
+                  </mediaobject>
+               </figure>
+            </listitem>
+         </itemizedlist>
+         
+      </section>
+   </section>
+      
+   <section id="approach">
+      <title>
+         
+         <phrase lang="de">Ansatz</phrase>
+      </title>
+      
+      
+      
+      
+      <para lang="de"> Der Kerngedanke von yax ...ToDo </para>
+      <section id="io">
+         <title>
+            
+            <phrase lang="de">Eingabe / Ausgabe </phrase>
+         </title>
+         
+         
+         <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="validate1" type="xproc:Validate"/&gt; 
+   &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="validate2" type="xproc:Validate"/&gt; 
+&lt;/xproc:pipeline&gt;
+         </programlisting>
+         <figure id="io.closed.pipeTrace.png" float="0">
+            <title>
+               
+               <phrase id="io.closed.png.de" lang="de">Einfache 'geschlossene' Pipeline</phrase>
+            </title>
+            <mediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/io.closed.pipeTrace.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/io.closed.pipeTrace.png" scale="50" format="PNG"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         
+
+         <programlisting format="linespecific">
+
+   &lt;xproc:pipeline name="pipe1" 
+      xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+      xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+      &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+         &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+      &lt;/xproc:step&gt;
+      &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+         &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+      &lt;/xproc:step&gt;
+      &lt;xproc:choose name="choose1"&gt;
+         &lt;xproc:when name="choose1when1"&gt;
+            &lt;xproc:step name="trans3.1.1" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+            &lt;xproc:step name="trans3.1.2" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+         &lt;/xproc:when&gt;
+         &lt;xproc:when name="choose1when2"&gt;
+            &lt;xproc:step name="trans3.2.1" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+            &lt;xproc:step name="trans3.2.2" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+         &lt;/xproc:when&gt;
+         &lt;xproc:otherwise name="choose1otherwise"&gt;
+            &lt;xproc:step name="trans3.9.1" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+            &lt;xproc:step name="trans3.9.2" type="xproc:XSLT"&gt;
+               &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+            &lt;/xproc:step&gt;
+         &lt;/xproc:otherwise&gt;
+      &lt;/xproc:choose&gt;
+      &lt;xproc:step name="trans4" type="xproc:XSLT"&gt;
+         &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+      &lt;/xproc:step&gt;
+   &lt;/xproc:pipeline&gt;            
+            
+         </programlisting>
+         <figure id="io.closedWithSwitch.pipeTrace.png" float="0">
+            <title>
+               
+               <phrase id="io.closedWithSwitch.png.de" lang="de">'Geschlossene' Pipeline mit verzweigendem Construct</phrase>
+            </title>
+            <mediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/io.closedWithSwitch.pipeTrace.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/io.closedWithSwitch.pipeTrace.png" scale="50" format="PNG"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         
+         
+         
+         
+         <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="store1" type="xproc:Store"/&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans4" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+            
+         </programlisting>
+         <figure id="io.openWithStore.pipeTrace.png" float="0">
+            <title>
+               
+               <phrase id="io.openWithStore.png.de" lang="de">'Nach hinten geöffnete' Pipeline mit Ausgabe Komponente</phrase>
+            </title>
+            <mediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/openWithStore.pipeTrace.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/openWithStore.pipeTrace.png" scale="50" format="PNG"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         
+         
+         
+
+         <programlisting format="linespecific">
+            
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="load1" type="xproc:Load"/&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans4" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+            
+         </programlisting>
+         <figure id="io.openWithLoad.pipeTrace.png" float="0">
+            <title>
+               
+               <phrase id="io.openWithLoad.png.de" lang="de">'Nach vorn geöffnete' Pipeline mit Eingabe Komponente</phrase>
+            </title>
+            <mediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/openWithLoad.pipeTrace.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/openWithLoad.pipeTrace.png" scale="50" format="PNG"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         
+         
+
+         <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="load1" type="xproc:Load"/&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans4" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation4.xsl"/&gt; 
+      <emphasis role="bold">&lt;xproc:input port="in" step="trans2" source="out"/&gt;</emphasis> 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+            
+         </programlisting>
+         <figure id="io.openWithLoadAndExplicitConnection.pipeTrace.png" float="0">
+            <title>
+               
+               <phrase id="io.openWithLoadAndExplicitConnection.png.de" lang="de">'Nach vorn geöffnete' Pipeline mit Exliziter Verbindung</phrase>
+            </title>
+            <mediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/openWithLoadAndExplicitConnection.pipeTrace.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/openWithLoadAndExplicitConnection.pipeTrace.png" scale="50" format="PNG"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+      </section>
+      <section id="extensions">
+         <title>
+            
+            <phrase lang="de">Extension Mechanism</phrase>
+         </title>
+         <para>
+            All component type classes have to reside in a package called 'net.sf.yax.types'.
+            The built-in components are physically located in the yax library file <emphasis>yax-&lt;version&gt;.jar</emphasis>.
+            They are distributed on three pipeline-libraries:
+         </para>
+         <itemizedlist>
+               <listitem>
+                  <para>
+                     xproc-standard
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     xproc-options
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     yax-standard
+                  </para>
+               </listitem>
+            </itemizedlist>
+         <para>
+            yax depicts all existant components grouped by libraries in the pipeline config file. 
+         </para> 
+         <para>
+            you can extend yax with step implemented by yourown by simply extend the class
+            net.sf.yax.types.StepType and place the class file(s) of this implementation into the 
+            <emphasis>custom</emphasis> directory. For further details please refer to 'references/custom steps'.   
+         </para> 
+      </section>
+      <section id="proccesAndError">
+         <title>
+            
+            <phrase lang="de">Verarbeitung und Fehlerbehandlung</phrase>
+         </title>
+         <para>
+            ToDo
+         </para>
+      </section>
+      <section id="issues">
+         <title>
+            
+            <phrase lang="de">offene Punkte zur Spezifikation</phrase>
+         </title>
+         <itemizedlist>
+            <title>
+               
+               <phrase lang="de">offene Punkte zur Spezifikation</phrase>
+            </title>
+            <listitem>
+               <para>Associating Documents with Ports / Specified by source</para>
+               <para>
+                  Since constructs also have ports, their ports should also be reachable 
+                  by referencing via 'by source'. So 
+               </para>
+               <para>
+                  <programlisting format="linespecific">
+&lt;p:step name="expand" type="p:xinclude"&gt;
+  &lt;p:input port="document" <emphasis role="bold">step="otherstep"</emphasis> source="result"/&gt;
+&lt;/p:step&gt;
+                  </programlisting>
+                  
+               </para>
+               <para>
+                  should become something like (better with a more handsome term for 'component'):
+               </para>
+               <para>
+                  <programlisting format="linespecific">
+&lt;p:step name="expand" type="p:xinclude"&gt;
+  &lt;p:input port="document" <emphasis role="bold">component="otherComponent"</emphasis> source="result"/&gt;
+&lt;/p:step&gt;
+                  </programlisting>
+                  
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  Associating Documents with Output Ports
+               </para>
+               <para>
+                  Are there use cases this kind of association makes sense?
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  context of choose/when/otherwise
+               </para>
+               <para>
+                  the context should also be provided by a (e.g. reference) port. 
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  are there important reasons to differenciate between steps and constructs? 
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  Should a 'declare-construct-type' exists?
+               </para>
+               <para>
+                  In my understanding the only difference between constructs and steps is that steps treats the result 
+                  while constructs only passes the result without any treatment. 
+                  Otherwise both have to follow the rule for components.
+               </para>
+               <para>
+                  One can define custom 'step's. So should one also be able to define constructs.
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  what expression language(s) (el) should be used in XProc scripts?
+               </para>
+               <para>
+                  For compatibility purposes an el should be defined by the specification. 
+                  Otherwise the scripts runs only on processors which understands a certain el.
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  Try/Catch
+               </para>
+               <para>
+                  Group within Try necessary?
+               </para>
+               <para>
+                  multiple Catch clauses would make sense.
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  namespace uri for XProc
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  base URI for XInclude and Store
+               </para>
+               <para>
+                  A pipeline might has more than one input document simultaniously 
+                  via the root input and loads.
+                  How to determine a single base URI?
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  Load / Store
+               </para>
+               <para>
+                  As Load should provide an unambiguous content on its <emphasis>result</emphasis> port
+                  it must not have other inputs than the source referenced by href. 
+               </para>
+               <para>
+                  Store provides (or better delivers) an unambigous content to the external realm via the href.
+                  If Store would provide this content simulantiously an its <emphasis>result</emphasis> the pipeline 
+                  chain could be kept closed at a Store step point. 
+               </para>
+            </listitem>
+         </itemizedlist>
+      </section>
+   </section>
+   <section id="features">
+      <title>
+         
+         <phrase lang="de">Leistungsumfang</phrase>
+      </title>
+      <table id="features.table" frame="all">
+         <title>
+            
+            <phrase lang="de">Leistungsumfang</phrase>
+         </title>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="feature" colwidth="1*"/>
+            <colspec colnum="2" colname="description" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry colname="feature">
+                     
+                     <para lang="de"> <emphasis role="bold">Leistungsmerkmal</emphasis> </para>
+                  </entry>
+                  <entry colname="feature">
+                     
+                     <para lang="de"> <emphasis role="bold">Beschreibung</emphasis> </para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry namest="feature" nameend="description">
+                     
+                     <para lang="de"> <emphasis role="bold">Allgemeine Leistungsmerkmale</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     
+                     <para lang="de"> logging </para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     <para lang="de">
+                        Sie können log4j oder ein anderes Loggin Subsystem nutzen.
+                        Wenn kein subsystem bestimmt ist, protokolliert yax auf die system ports.
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="description">
+                     
+                     <para lang="de"> <emphasis role="bold">Implementierung der Constructs</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para>&lt;p:pipeline&gt;</para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+                <row>
+                  <entry colname="feature">
+                     <para><emphasis>&lt;p:choose&gt;/&lt;p:when&gt;/&lt;p:choose&gt;</emphasis></para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+                <row>
+                  <entry colname="feature">
+                     <para><emphasis>&lt;p:try&gt;/&lt;p:group&gt;/&lt;p:catch&gt;</emphasis></para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="description">
+                     
+                     <para lang="de"> <emphasis role="bold">Implementierung der Steps</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para>&lt;p:XSLT&gt;</para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para>&lt;p:XInclude&gt;</para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para>&lt;p:Load&gt;</para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para>&lt;p:Store&gt;</para>
+                  </entry>
+                  <entry colname="description">
+                     
+                     
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </section>
+<section id="status">
+      <title id="status.title">
+         
+         <phrase lang="de">Status</phrase>
+      </title>
+      
+      
+      
+      
+      
+      <table id="features.status.table" frame="all">
+         <title>
+            
+            <phrase lang="de">Status der Implementierung</phrase>
+         </title>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="feature" colwidth="1*"/>
+            <colspec colnum="2" colname="status" colwidth="1*"/>
+            <colspec colnum="3" colname="annotation" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry colname="feature">
+                     
+                     <para lang="de"> <emphasis role="bold">Leistungsmerkmal</emphasis> </para>
+                  </entry>
+                  <entry>
+                     
+                     <para lang="de"> <emphasis role="bold">Status</emphasis> </para>
+                  </entry>
+                  <entry>
+                     
+                     <para lang="de"> <emphasis role="bold">Bemerkung</emphasis> </para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry namest="feature" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">Allgemeine Themen</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> inputs and outputs </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                     <para lang="de">
+                        implizite ports realisiert.
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> property / property files </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                     <para lang="de">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> preferences / preference file </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                     <para lang="de">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">Kernkonstrukte der Sprache </emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Pipeline </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Group </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        same behaviour as Pipeline.
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> For-Each </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Viewport </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Choose/When/Otherwise </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        first usage of explicit reference ports:
+                        if exists reference ports of when clauses can refer to 
+                        the reference port of the choose construct (or obviously th another reference port)  
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Try/Group/Catch </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        extended with differentiating catch clauses.
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Import </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Pipeline-Library</para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        yax builds libraries based on the current implementation (see pipeline config file).
+                     </para>
+                     <para lang="en">
+                        CRs expected.
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold"> Kern Schritte </emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Identity </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> XSLT </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        CRs expected.              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> XInclude </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Serialize </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Parse </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Load </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                      will be extended with access to database server and other data services.              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Store </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                      will be extended with access to database server and other data services.              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">  Subelemente der Components </emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> input </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> (erledigt)in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> output </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> (erledigt)in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Parameter </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> erledigt </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> input-parameter </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> ?? </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                        didn't understood.              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="feature" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold"> Mikrooperationsschritte </emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Rename </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Wrap </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Insert </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> in Arbeit </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="feature">
+                     <para> Set-Attributes </para>
+                  </entry>
+                  <entry colname="status">
+                     
+                     <para lang="de"> geplant </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">              
+                     </para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      
+   </section>   
+   <section id="reference">
+      <title id="reference.title">
+         
+         <phrase lang="de">Referenz</phrase>
+      </title>
+      <section id="overview">
+         <title>
+            
+            <phrase lang="de">Überblick</phrase>
+         </title>
+         
+         <para lang="de"> Beschreibung ToDo</para>
+      </section>
+      <section id="prerequisites">
+         <title>
+            
+            <phrase lang="de">Voraussetzungen</phrase>
+         </title>
+         
+         <para lang="de"> Folgende Software muss an einem frei wählbaren Ort verfügbar (installiert)
+            sein: </para>
+         <table id="prerequisites.table" frame="all">
+            <title>
+               
+               <phrase lang="de">Notwendige Packages</phrase>
+            </title>
+            <tgroup cols="2">
+               <colspec colnum="1" colname="package" colwidth="1*"/>
+               <colspec colnum="2" colname="description" colwidth="1*"/>
+               <thead>
+                  <row>
+                     <entry colname="package">
+                        
+                        <para lang="de">Package</para>
+                     </entry>
+                     <entry>
+                        
+                        <para lang="de">Nutzung</para>
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry colname="package">
+                        <para> Java (Version 5 or above) </para>
+                     </entry>
+                     <entry colname="description">
+                        <para lang="en"> 
+                           Since Version 1.4 Java contains a default transformation processor (XSLTC).
+                           This processor will be used if no other processors are visible (in the classpath).
+                           yax assumes the presence of this processor. So at least Java 1.4 is necessary for using yax.
+                           As yas is developed under Java 5 it is the recommended Java version.
+                        </para>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colname="package">
+                        <para> Ant(Version 1.7.0 or above) </para>
+                     </entry>
+                     <entry colname="description">
+                        <para lang="en"> 
+                           yax comes with an ant task, so you can use yax also under ant.
+                           An ant installation is only needed if you want to use the yax ant task.   
+                        </para>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colname="package">
+                        <para> Log4j(Version 1.2.14 or above) </para>
+                     </entry>
+                     <entry colname="description">
+                        <para lang="en"> 
+                           log4j is the recommended logging system.
+                           If log4j is not installed (resp. not reachable) yax uses its own ConsoleLogger.
+                           If you yax only under ant from yax perspective a log4j installation is not necessary
+                           because all log messages will be redirected to the ant logger.   
+                        </para>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colname="package">
+                        <para> <ulink url="http://www.saxonica.com/">Saxon</ulink>(xls1: Version 6.5.3 or above, xls2: Version 8.6. or above) </para>
+                     </entry>
+                     <entry colname="description">
+                        <para lang="en"> 
+                           yax provides the usage of different XSL processors. 
+                           The saxon processors builds the preferred test environment for the yax development.
+                           (Obviously you can use any xsl processor which is reachable vie JAXP). 
+                           The preferences file still includes the Saxon processors.
+                           If you want to use it follow Saxonias instruction how to obtain and install them.
+                           If no xsl processor is installed yax uses the system default transformer which comes with JRE (XSLTC).        
+                        </para>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colname="package">
+                        <para> <ulink url="http://xml.apache.org/xalan-j/">Xalan /(XSLTC)</ulink>(Version 2.7.0 or above) </para>
+                     </entry>
+                     <entry colname="description">
+                        <para lang="en"> 
+                           yax provides the usage of different XSL processors. 
+                           Xalan comes from Apache. 
+                           The preferences file still includes the Xalan and the XSLTC processor.
+                           If you want to use them follow Apaches instruction how to obtain and install them.
+                           If no xsl processor is installed yax uses the system default transformer which comes with JRE (XSLTC).        
+                        </para>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colname="package">
+                        <para>
+                           <ulink url="http://www.graphviz.org/">Graphviz - Graph Visualization Software</ulink> 
+                        </para>
+                     </entry>
+                     <entry colname="description">
+                        
+                        
+                        
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="installation">
+         <title>Installation</title>
+         
+         <para lang="de"> 
+            Laden Sie yax <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink> 
+            (hier der Menüpunkt 'download') herunter und entpacken Sie die Datei in ein beliebiges
+            <emphasis>&lt;yax-installation-directory&gt;</emphasis>.
+         </para>
+         <para lang="de"> 
+            Feel free to place yax-*.jar files somewhere in your system and make it/them accessable by 
+            the right classpath entry. 
+            But at least keep a copy of the main jar file within the <emphasis>&lt;yax-installation-directory&gt;/lib</emphasis>
+            for retrieving the implemented components. The minimal installation can be:  
+         </para>
+         <programlisting format="linespecific">
+
+<emphasis>&lt;yax-installation-directory&gt;/lib</emphasis>
+|
++--- lib
+     |
+     +--- yax-&lt;n.m&gt;.jar (&lt;n.m&gt; = Version Number)
+         </programlisting>
+         
+      </section>
+      <section id="configuration">
+         <title>
+            
+            <phrase lang="de">Konfiguration</phrase>
+         </title>
+        <section id="configuration.overview">
+           <title>
+              
+              <phrase lang="de">Überblick</phrase>
+           </title>
+           
+        </section>
+        <section id="properties">
+          <title>
+            
+            <phrase lang="de">Eigenschaften</phrase>
+          </title>
+          <table id="properties.table" frame="all">
+             <title>
+                
+                <phrase lang="de">Eigenschaft</phrase>
+             </title>
+             <tgroup cols="2">
+                <colspec colnum="1" colname="property" colwidth="1*"/>
+                <colspec colnum="2" colname="description" colwidth="1*"/>
+                <thead>
+                   <row>
+                      <entry colname="property">
+                         
+                         <para lang="de"> <emphasis role="bold">Eigenschaft</emphasis> </para>
+                      </entry>
+                      <entry colname="description">
+                         
+                         <para lang="de"> <emphasis role="bold">Beschreibung</emphasis> </para>
+                      </entry>
+                   </row>
+                </thead>
+                <tbody>
+                   <row>
+                      <entry namest="property" nameend="description">
+                         
+                         <para lang="de"> <emphasis role="bold">Allgemeine Eigenschaften</emphasis> </para>
+                      </entry>
+                   </row>
+                   <row>
+                      <entry colname="property">
+                         
+                         <para lang="de"> baseURI </para>
+                      </entry>
+                      <entry colname="description">
+                         <para lang="en">
+                            The baseURI represents the base directory which is used by a relative path to become an absolute path. 
+                         </para>
+                      </entry>
+                   </row>
+                </tbody>
+             </tgroup>
+          </table>
+        </section>
+        <section id="propertyFiles">
+          <title>
+          
+          <phrase lang="de">Property Dateien</phrase>
+          </title>
+          <para>
+          </para>
+        </section>
+        <section id="preferences">
+          <title>
+          
+          <phrase lang="de">Voreinstellungen</phrase>
+          </title>
+          <para>
+          </para>
+        </section>
+        <section id="Logging">
+          <title>
+          
+          <phrase lang="de">Logging</phrase>
+          </title>
+          
+          
+          
+          
+        </section>
+        
+        <section id="classpath">
+          <title>
+          
+          <phrase lang="de">classpath</phrase>
+          </title>
+          <para>
+            For using yax in commandline mode 'yax-n.m.jar' (n.m = version number) must be reachable.
+            if you want to run yax under ant the libraries 'yax-n.m.jar' and 'ant-yax.jar' must be reachable. 
+            Both of the libraries resides by default in YAX_HOME/lib but can be placed at any other location. 
+          </para>
+          <para>
+            If you want to use any other xslt processor than the system default transformer you have to
+            place their libraries into the classpath. In commandline mode you can either place the libraries
+            into the system classpath or pass it via classpath option (-classpath resp. -cp) during the 
+            program start. When running yax under ant all necessary libraries must be assigned to the classpath
+            BEFORE starting ant. Passing the transformer libraries via ant's classpath features (either within taskdef or with classpathref attribute)
+            do not work.  
+          </para>
+        </section>
+        
+        <section id="catalog">
+          <title>
+          
+          <phrase lang="de">XML Katalog</phrase>
+          </title>
+          <para>
+            An XML catalog maps (usually remote) URIs to other (usually local) URIs.
+          </para>
+          <para>
+            yax uses <ulink url="http://xml.apache.org/commons/components/resolver/">Norman Walsh's resolver</ulink>.
+            You can configure the resolver - especially the link to your catalog file - by editing the config/CatalogManager.properties file.
+            How to configure the the resolver is explained in an excellent manner on the <ulink url="http://xml.apache.org/commons/components/resolver/">resolver's site</ulink>
+          </para>
+          <para>
+            For your confinience the yax distribution contains the recent resolver library (lib/resolver.jar). 
+            If you want to use the xml catalog feature the config directory and the resolver.jar have to be part of your the classpath. 
+            Start yax with the '-noCatalog' option If you want to suppress the xml catalog usage.
+          </para>
+          <para>
+             
+          </para>
+        </section>
+        
+        <section id="baseURI">
+          <title>
+          
+          <phrase lang="de">baseURI</phrase>
+          </title>
+          <para>
+          </para>
+        </section>
+        
+        <section id="expressionLanguage">
+        
+          <title>
+            
+            <phrase lang="de">Ausdruckssprache</phrase>
+          </title>
+          
+          
+          
+
+            
+
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar 
+       net.sf.yax.Yax 
+       -Dexample.dir=examples 
+       -Dtest.dir=test 
+       -DoutputFilename=output1.xml 
+       example1.xproc
+            </programlisting>
+
+            <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:step name="Load1" type="xproc:Load" href="${examples.dir}/${inputFilename}"/&gt;
+    &lt;xproc:step name="Store1" type="xproc:Store" href="${test.dir}/${outputFilename}"/&gt;
+&lt;/xproc:pipeline&gt;
+            </programlisting>
+        </section>
+        
+        <section id="startParameter">
+          <title>
+          
+          <phrase lang="de">Startparameter</phrase>
+          </title>
+          <para>
+              <table id="startParameter.table" frame="all">
+                 <title>
+                    
+                    <phrase lang="de">Leistungsumfang</phrase>
+                 </title>
+                 <tgroup cols="3">
+                    <colspec colnum="1" colname="attribute" colwidth="1*"/>
+                    <colspec colnum="2" colname="description" colwidth="1*"/>
+                    <colspec colnum="3" colname="required" colwidth="1*"/>
+                    <thead>
+                       <row>
+                          <entry colname="attribute">
+                             
+                             <para lang="de"> <emphasis role="bold">Attribute</emphasis> </para>
+                            </entry>    
+                      <entry colname="description">    
+                             
+                         <para lang="de"> <emphasis role="bold">Beschreibung</emphasis> </para>    
+                      </entry>    
+                    <entry colname="required">
+                         
+                         <para lang="de"> <emphasis role="bold">Muss-Feld</emphasis> </para>
+                      </entry>
+                   </row>
+                </thead>
+                <tbody>
+                   <row>
+                      <entry colname="attribute">
+                         <para>
+                          script
+                         </para>
+                      </entry>
+                      <entry colname="description">
+                         
+                         <para lang="de">
+                          Name des XProc Skriptes, entweder relativ zur baseURI oder absolut angegeben.
+                         </para>
+                      </entry>
+                      <entry colname="required">
+                         
+                         <para lang="de">
+                          Ja
+                         </para>
+                      </entry>
+                   </row>
+                   <row>
+                      <entry colname="attribute">
+                         <para>
+                          in
+                         </para>
+                      </entry>
+                      <entry colname="description">
+                         
+                         <para lang="de">
+                          Spezifiziert ein einzelnes XML Dokument, das bearbeitet werden soll. Dieser Parameter ist für die gemeinsamen Nutzung mit dem 'out' Parameter vorgesehen.
+                         </para>
+                         
+                         <para lang="de">
+                          für die Bearbeitung von mehreren Eingabedateien bitte ein fileset benutzen.
+                         </para>
+                      </entry>
+                      <entry colname="required">
+                         
+                         <para lang="de">
+                          Nein
+                         </para>
+                      </entry>
+                   </row>
+                   <row>
+                      <entry colname="attribute">
+                         <para>
+                          out
+                         </para>
+                      </entry>
+                      <entry colname="description">
+                         
+                         <para lang="de">
+                          Spezifiziert den Ausgabenamen für das bearbeitete Dokument.
+                         </para>
+                      </entry>
+                      <entry colname="required">
+                         
+                         <para lang="de">
+                          Nein. Nicht verwenden, wenn 'in' nicht verwendet ist.
+                         </para>
+                      </entry>
+                   </row>
+                   <row>
+                      <entry colname="attribute">
+                         <para>
+                          force
+                         </para>
+                      </entry>
+                      <entry colname="description">
+                         <para lang="en">
+                            recreates output files, even if they are newer than their corresponding input files or the XProc script.    
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            outDir
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            use in case of multiple input (via fileset).
+                           </para>
+                           <para lang="en">
+                            specifies the directory where the output files are to write to.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            outPattern
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            use in case of multiple input (via fileset).
+                           </para>
+                           <para lang="en">
+                            specifies how to build the output filename.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            noOutputfile
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            suppresses generation of an outputfile (overrides all other output parameters).
+                           </para>
+                           <para lang="en">
+                            The usage of this parameter makes sense when you only want to use inner output.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            noCatalog
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            suppresses the usage of an xml catalog.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            propertyfile
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            the properties this file contains will be passed to yax for further usage.  
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            baseURI
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            the base directory for all containing steps and containers.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            verbose
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            yax logs verbosely.
+                           </para>
+                           <para lang="en">
+                            For getting these log messages it is required that ant is also started in verbose mode. 
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            quiet
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            yax only logs errors, warnings and very important informations.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                  </tbody>
+                </tgroup>
+              </table>
+          </para>
+        </section>
+      </section>
+      <section id="usage">
+         <title>
+            
+            <phrase lang="de">Bedienung</phrase>
+         </title>
+         <para/>
+         <section id="usage.InputOutput">
+            <title>
+               
+               <phrase lang="de">Die Wege Input zu verwenden und Output zu erzeugen</phrase>
+            </title>
+           <section id="usage.InputOutput.Overview">
+              <title>
+                 
+                 <phrase lang="de">Überblick</phrase>
+              </title>
+              <formalpara>
+                <title>
+                   
+                   <phrase lang="de">Input</phrase>
+                </title>
+                <para>
+                 There a (currently) two ways to access input data:
+                 <itemizedlist>
+                    <listitem>
+                      <para>
+                        use start parameters to pass input location(s) 
+                      </para>
+                    </listitem>
+                    <listitem>
+                      <para>
+                        use the <emphasis>&lt;p:Load&gt;</emphasis> step.
+                      </para>
+                    </listitem>
+                 </itemizedlist>
+                </para>
+              </formalpara>
+              <formalpara>
+                <title>
+                   
+                   <phrase lang="de">Output</phrase>
+                </title>
+                
+              </formalpara>
+           </section>
+           <section id="usage.InputOutput.Outer">
+              <title>
+                 
+                 <phrase lang="de">Äußere Ein-/Ausgabe</phrase>
+              </title>
+              <para>
+                All I/O effects by start parameters (or other interface input) is 
+                called outer I/O.
+              </para>
+              <formalpara>
+                <title>
+                   
+                   <phrase lang="de">Nur den Startparameter für die Eingabe-Datei Lokation übergeben.</phrase>
+                </title>
+                <para>
+                  The most simple variant of an outer I/O is to use an input location parameter beside the mandatory xproc script location parameter:
+                </para>
+              </formalpara>
+              <programlisting format="linespecific">
+java -classpath lib/yax-0.8.jar net.sf.yax.Yax examples/example1.xproc <emphasis role="bold">examples/example1.xml</emphasis>
+              </programlisting>
+              <para>
+                yax completes the necessary information based on the input location. 
+                Assuming you pass the input file  
+              </para>
+              <programlisting format="linespecific">
+path/to/input/resource/inputname.xml                   
+              </programlisting>
+	            <para>
+                derived from that input location yax generates the output location:  
+              </para>
+	            <programlisting format="linespecific">
+path/to/input/resource/inputname<emphasis role="bold">.output</emphasis>.xml                   
+              </programlisting>
+              <formalpara>
+                <title>
+                   
+                   <phrase lang="de">Startparameter für die Eingabe- und die Ausgabe-Datei Lokation übergeben.</phrase>
+                </title>
+                <para>
+                  The straight forward way of outer I/O is to pass an input location parameter and a corresponding output location parameter:
+                </para>
+              </formalpara>
+              <programlisting format="linespecific">
+java -classpath lib/yax-0.8.jar net.sf.yax.Yax examples/example1.xproc 
+<emphasis role="bold">input/inputname.xml</emphasis>
+<emphasis role="bold">output/outputname.xml</emphasis>
+              </programlisting>
+              <para>
+                In that case the processing is obvious.
+                yax takes the input document, passes it through the pipeline and writes
+                the result to the ouput document.  
+              </para>
+              <formalpara>
+                <title>
+                   
+                   <phrase lang="de">Das XProc Skript auf mehrere Eingabe-Dokumente anwenden.</phrase>
+                </title>
+                <para>
+                  yax can also process multiple input documents in one run. For applying this 
+                  feature it is recommended to use ant because in ant you can use the full flexibility of the fileset feature. Example:
+                </para>
+              </formalpara>
+              <programlisting format="linespecific">
+...
+  &lt;target 
+    name="pipeline1"
+    description="uses different multiple input files"
+    &gt;
+    &lt;yax 
+      verbose="yes"
+      script="test/pipeline00.xproc"
+      outDir="test"
+      outPattern="${inputName}.out.${inputExtension}"
+      &gt;
+      <emphasis role="bold">
+      &lt;fileset 
+        dir="examples" 
+        includes="
+        example*.xml
+        " 
+        excludes="
+        example2.xml
+        " 
+      /&gt;
+      </emphasis>
+    &lt;/yax&gt;
+  &lt;/target&gt;
+...              
+              </programlisting>
+              <para>
+                Alltough you can you this feature in commmandline mode. You pass a colon separated input file list 
+                with the <emphasis>-inList</emphasis> parameter:
+              </para>
+              <programlisting format="linespecific">
+java -classpath lib/yax-0.8.jar net.sf.yax.Yax examples/example1.xproc 
+<emphasis role="bold">-inList={input/inputname1.xml;input/inputname1.xml}</emphasis>
+outDir=test outPattern="${inputName}.out.${inputExtension}
+              </programlisting>
+              <para>
+                In case of processing multiple input documents it is not possible (or better makes no sense)
+                to pass an output location for each input document. Therefore yax provides to other
+                parameter for determining the output location(s).
+              </para>
+              <para>
+                With <emphasis>-outDir</emphasis> you can choose an arbitrary output directory&gt;. 
+                If you this parameter as the only output parameter the processed documents will be
+                written to the output directory with its input filename. 
+              </para>
+              <para>
+                The other parameter is the <emphasis>-outPattern</emphasis> parameter.
+                With <emphasis>-outPattern</emphasis> you describes the pattern for building 
+                the output file name. Example:
+              </para>
+              <para>
+                Assuming you are using the pattern:
+              </para>
+              <programlisting format="linespecific">
+<emphasis role="bold">outPattern="${inputName}.out.${inputExtension}</emphasis>              
+              </programlisting>
+              <para>
+                and you are processing the input files example1.xml and example3.xml by using ant's fileset
+              </para>
+              <programlisting format="linespecific">
+...
+&lt;fileset 
+  dir="examples" 
+  includes="
+  example*.xml
+  " 
+  excludes="
+  example2.xml
+  " 
+/&gt;
+...              
+              </programlisting>
+              <para>
+                yax will created the two file:
+              </para>
+              <programlisting format="linespecific">
+...
+ examples
+ |
+ +-- example1.out.xml
+     example2.out.xml
+       
+              </programlisting>
+              <para>
+                If you combine this parameter with the <emphasis>-outDir</emphasis> parameter
+                determining the 'test' directory as output directory:
+              </para>
+              <programlisting format="linespecific">
+...
+<emphasis role="bold">
+outDir="test"
+outPattern="${inputName}.out.${inputExtension}"
+</emphasis>
+...              
+              </programlisting>
+              <para>
+                yax writes the two files to the 'test' directory:
+              </para>
+              <programlisting format="linespecific">
+...
+<emphasis role="bold">
+ test
+</emphasis>
+ |
+ +-- example1.out.xml
+     example2.out.xml
+              </programlisting>
+           </section>
+           <section id="usage.InputOutput.Inner">
+              <title>
+                 
+                 <phrase lang="de">Innere Ein-/Ausgabe</phrase>
+              </title>
+              <para>
+                Beside the outer I/O which is effected by the usage of start parameters 
+                you can use the steps <emphasis>p:Load</emphasis> and <emphasis>p:Store</emphasis> to read resp. write 
+                xml documents during the pipeline process.
+              </para>
+              <para>
+                Although they are alternative instruments outer I/O and inner I/O they work
+                simultaniously. If you process for example a pipeline which includes 
+                inner I/O without any output start parameter:   
+              </para>
+              <programlisting format="linespecific">
+...              
+&lt;target 
+  name="runExample5.1"
+  description="uses inner and outer I/O"
+  &gt;
+  &lt;yax 
+    script="examples/example5.xproc"
+    &gt;
+    ...  
+  &lt;/yax&gt;
+&lt;/target&gt;
+...
+              </programlisting>
+              <para>
+                You will get two times the same output in different files:  
+              </para>
+              <programlisting format="linespecific">
+...
+INFO [Load:Load1] Reading input file '...\examples\xincludeArticle.xml' into Context '2'.
+...
+<emphasis role="bold">INFO [Store:Store1] Writing output file '...\test\example5.output.cmd.xml' from Context '2'.</emphasis>
+...
+<emphasis role="bold">INFO [root:yax.root] Writing output file '...\yaxOutput.xml' from Context '2'.</emphasis>
+...
+              </programlisting>
+              <para>
+                This is triggered by a)<emphasis>p:Store</emphasis> step
+                and b) the automatic ouput determination of the <emphasis>root</emphasis> element.
+                The following graphic shows this circumstance:  
+              </para>
+              <figure id="io.innerAndOuterIO.png" float="0">
+                 <title>
+                    
+                    <phrase id="io.innerAndOuterIO.png.de" lang="de">Äußere und innere Ein-/Ausgabe</phrase>
+                 </title>
+                 <mediaobject>
+                    <imageobject role="html">
+                       <imagedata fileref="figures/io.innerAndOuterIO.png" format="PNG"/>
+                    </imageobject>
+                    <imageobject role="fo">
+                       <imagedata fileref="figures/io.innerAndOuterIO.png" scale="50" format="PNG"/>
+                    </imageobject>
+                 </mediaobject>
+              </figure>
+              <para>
+                The <emphasis>p:Store</emphasis> step creates a side branch but yax ports the
+                content through the hole pipeline to the <emphasis>root</emphasis> container
+                which is manages the outer I/O.
+              </para>
+              <para>
+                To avoid such undesired output behaviour (assuming in this case the outer output is undesired)
+                you can use the <emphasis>-noOutputfile</emphasis> parameter:
+              </para>
+              <programlisting format="linespecific">
+...              
+&lt;target 
+  name="runExample5.2"
+  description="uses only inner I/O"
+  &gt;
+  &lt;yax 
+    <emphasis role="bold">noOutputfile="yes"</emphasis> 
+    script="examples/example5.xproc"
+    &gt;
+    ...  
+  &lt;/yax&gt;
+&lt;/target&gt;
+...
+              </programlisting>
+              <para>
+                In this case the content on the output port of <emphasis>root</emphasis> will be discarded.  
+              </para>
+           </section>
+         </section>
+         
+         <section id="usage.commandline">
+            <title>
+               
+               <phrase lang="de">Start über die Kommandozeile</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar net.sf.yax.Yax [options]<emphasis>pipeline file location</emphasis> [<emphasis>XML input data file location</emphasis>  [<emphasis>XML output data file location</emphasis>]]
+            </programlisting>
+            
+            <programlisting format="linespecific">
+
+element 'yax:transformers' has ...<emphasis>something about transformer preference</emphasis>
+... 
+step '<emphasis>step name</emphasis>': <emphasis>something about transformer which will be used</emphasis>
+...
+<emphasis>messages from each step</emphasis>
+... 
+Yax run sucessful completed.
+
+            </programlisting>
+
+            
+
+
+            <programlisting format="linespecific">
+
+Usage: java yax [options] pipelineURI [inputfileURI [outputfileURI]]
+
+Options: 
+
+-h, -help              print this message (and exit)
+-version               print version information (and exit)
+-quiet, -q             be extra quiet
+-verbose, -v           be extra verbose (quiet takes precedence)
+-debug, -d             print debugging information
+-baseURI=&lt;value&gt;       set the baseURI to value
+-noOutputfile          suppress generation of an outputfile (overrides all other output parameters)
+                       (make sense if output is created within the pipeline)
+-D&lt;property&gt;=&lt;value&gt;   provide property for using within the xproc script as '${property}'
+-propertyfile &lt;name&gt;   load properties from file (-D&lt;property&gt;s take precedence)
+
+(for further usage alternatives see http://yax.sourceforge.net/)
+
+            </programlisting>
+            <warning>
+              <para>
+                debug effects that some steps (especially XSLT) logs the hole content of a context.
+                So use thit option with care. At best use only small inputs when you use the debug option.
+              </para>
+            </warning>
+            
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     1) <emphasis>&lt;input filename&gt;</emphasis>.output.xml
+                  </para>
+                  
+               </listitem>
+               <listitem>
+                  <para>
+                     2) <emphasis>&lt;pipeline filename&gt;</emphasis>.config.xml
+                  </para>
+                  
+               </listitem>
+               <listitem>
+                  <para>
+                     3) <emphasis>&lt;pipeline filename&gt;</emphasis>.pipeTrace.png
+                  </para>
+                  
+               </listitem>
+               <listitem>
+                  <para>
+                     4) <emphasis>&lt;pipeline filename&gt;</emphasis>.portTrace.png
+                  </para>
+                  
+               </listitem>
+            </itemizedlist>
+         </section>
+         
+         <section id="usage.ant">
+            <title>
+               
+               <phrase lang="de">Ant Task</phrase>
+            </title>
+            
+           <section id="usage.ant.overview">
+              <title>
+                 
+                 <phrase lang="de">Überblick</phrase>
+              </title>
+              
+              <para>
+                As the XSLT task do not provide multiple input (and output) yax provides an own
+                solution using ant's well known fileset feature in collaboration with the 
+                <emphasis>outDir</emphasis> and/or <emphasis>outPattern</emphasis> attributes. 
+              </para>
+              <para>
+                Corresponding to the XSLT task yax also provides passing parameters to 
+                the pipeline processor and the used subsystems (as transformers). While these
+                parameters are not exclusively passed for the usage in transformers to yax 
+                the different name 'property' was used. But these 'properties' will also be passed as
+                parameters to the transformers.
+              </para>
+              <para>
+                If you intend to use other xslt processors than the system defualt processor 
+                please consider that all necessary libraries must be assigned to the classpath
+                BEFORE starting ant. Passing the transformer libraries via ant's classpath features 
+                (either within taskdef or with classpathref attribute) do not work.  
+              </para>
+              
+              <programlisting format="linespecific">
+...
+&lt;target 
+  name="runExample1"
+  description="transforms an input file with concatenated transformation steps"
+  &gt;
+  &lt;yax 
+    in="examples/example1.xml"
+    out="test/example1.output.ant.xml"
+    script="examples/example1.xproc"  
+    &gt;
+  &lt;/yax&gt;
+&lt;/target&gt;
+...
+              </programlisting>
+  
+           </section>
+
+           <section id="usage.ant.description">
+              <title>
+                 
+                 <phrase lang="de">Beschreibung</phrase>
+              </title>
+              <para>
+              </para>
+
+           </section>
+
+           <section id="usage.ant.parameters">
+              <title>
+                 
+                 <phrase lang="de">Parameter</phrase>
+              </title>
+              <para>
+                <table id="ant.parameters.table" frame="all">
+                   <title>
+                      
+                      <phrase lang="de">Leistungsumfang</phrase>
+                   </title>
+                   <tgroup cols="3">
+                      <colspec colnum="1" colname="attribute" colwidth="1*"/>
+                      <colspec colnum="2" colname="description" colwidth="1*"/>
+                      <colspec colnum="3" colname="required" colwidth="1*"/>
+                      <thead>
+                         <row>
+                            <entry colname="attribute">
+                               
+                               <para lang="de"> <emphasis role="bold">Attribute</emphasis> </para>
+                              </entry>    
+                        <entry colname="description">    
+                               
+                           <para lang="de"> <emphasis role="bold">Beschreibung</emphasis> </para>    
+                        </entry>    
+                      <entry colname="required">
+                           
+                           <para lang="de"> <emphasis role="bold">Muss-Feld</emphasis> </para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            script
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           
+                           <para lang="de">
+                            Name des XProc Skriptes, entweder relativ zur baseURI oder absolut angegeben.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Ja
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            in
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           
+                           <para lang="de">
+                            Spezifiziert ein einzelnes XML Dokument, das bearbeitet werden soll. Dieser Parameter ist für die gemeinsamen Nutzung mit dem 'out' Parameter vorgesehen.
+                           </para>
+                           
+                           <para lang="de">
+                            für die Bearbeitung von mehreren Eingabedateien bitte ein fileset benutzen.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            out
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           
+                           <para lang="de">
+                            Spezifiziert den Ausgabenamen für das bearbeitete Dokument.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. Nicht verwenden, wenn 'in' nicht verwendet ist.
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            force
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            recreates output files, even if they are newer than their corresponding input files or the XProc script.  	
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            outDir
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            use in case of multiple input (via fileset).
+                           </para>
+                           <para lang="en">
+                            specifies the directory where the output files are to write to.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            outPattern
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            use in case of multiple input (via fileset).
+                           </para>
+                           <para lang="en">
+                            specifies how to build the output filename.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            noOutputfile
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            suppresses generation of an outputfile (overrides all other output parameters).
+                           </para>
+                           <para lang="en">
+                            The usage of this parameter makes sense when output is created within the pipeline.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            propertyfile
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            the properties this file contains will be passed to yax for further usage.  
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            baseURI
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            the base directory for all containing steps and containers.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            verbose
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            yax logs verbosely.
+                           </para>
+                           <para lang="en">
+                            For getting these log messages it is required that ant is also started in verbose mode. 
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry colname="attribute">
+                           <para>
+                            quiet
+                           </para>
+                        </entry>
+                        <entry colname="description">
+                           <para lang="en">
+                            yax only logs errors, warnings and very important informations.
+                           </para>
+                        </entry>
+                        <entry colname="required">
+                           
+                           <para lang="de">
+                            Nein. 
+                           </para>
+                        </entry>
+                     </row>
+              </tbody>
+           </tgroup>
+        </table>
+              </para>
+
+           </section>
+
+           <section id="usage.ant.nestedParameters">
+              <title>
+                 
+                 <phrase lang="de">Eingebettete Elemente als Parameter</phrase>
+              </title>
+              <para>
+              </para>
+
+           </section>
+
+
+           <section id="usage.ant.examples">
+              <title>
+                 
+                 <phrase lang="de">Beispiele</phrase>
+              </title>
+              <para>
+                see section 'Examples'
+              </para>
+
+           </section>
+            
+         </section>
+         <section id="usage.SOAP">
+            <title>
+               
+               <phrase lang="de">SOAP Schnittstelle</phrase>
+            </title>
+            
+         </section>
+         <section id="usage.pipelineConfig">
+            <title>
+               
+               <phrase lang="de">Die Pipeline-Konfigurationsdatei</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+               
+&lt;yax:configuration xmlns:yax="http://www.opsdesign.eu/yax/1.0"&gt;
+&lt;!--configuration description generated by Yax - Do not edit by hand--&gt;
+&lt;pipeline name="pipe1"&gt;
+..
+&lt;step name="trans1"&gt;
+&lt;output port="out" sequence="no" yax:creator="implementation.xproc.standard"/&gt;
+&lt;input port="in" sequence="no" yax:creator="implementation.xproc.standard"&gt;
+&lt;yax:connection port="in" yax:component="pipe1"/&gt;
+&lt;/input&gt;
+&lt;input port="stylesheet" sequence="no" yax:creator="implementation.xproc.standard"/&gt;
+&lt;input href="examples/transformation1.xsl" port="stylesheet" yax:creator="pipeline"/&gt;
+&lt;/step&gt;
+...
+&lt;/pipeline&gt;
+&lt;xproc:pipeline-library name="xproc.options" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+&lt;xproc:declare-step-type type="Rename" yax:description=""&gt;
+&lt;xproc:output port="out" select="" sequence="no" yax:bySourceRequired="no"/&gt;
+&lt;xproc:input port="in" select="" sequence="no" yax:bySourceRequired="no"/&gt;
+&lt;xproc:parameter name="name" required="yes" yax:values="{$any}"/&gt;
+&lt;xproc:parameter name="select" required="yes" yax:values="{$xpathExpression}"/&gt;
+&lt;/xproc:declare-step-type&gt;
+...
+&lt;/xproc:pipeline-library&gt;
+&lt;xproc:pipeline-library name="xproc.standard" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+...
+&lt;/xproc:pipeline-library&gt;
+&lt;xproc:pipeline-library name="yax.standard" xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"&gt;
+...
+&lt;/xproc:pipeline-library&gt;
+&lt;/yax:configuration&gt;
+               
+            </programlisting>
+         </section>         
+         <section id="usage.graphicalOutput">
+            <title>
+               
+               <phrase lang="de">Grafische Visualisierung einer Pipeline</phrase>
+            </title>
+            
+            <figure id="graphicalOutput.pipeTrace.png" float="0">
+               <title>
+                  
+                  <phrase id="graphicalOutput.pipeTrace.png.de" lang="de">Komprimierte grafische Darstellung der Pipeline 'example1.xproc'.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/example1.pipeTrace.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/example1.pipeTrace.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            <figure id="graphicalOutput.pipeTraceWithExplicitConnection.png" float="0">
+               <title>
+                  
+                  <phrase id="graphicalOutput.pipeTraceWithExplicitConnection.png.de" lang="de">Pipeline mit impliziter und expliziten Verbindungen</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/openWithLoadAndExplicitConnection.pipeTrace.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/openWithLoadAndExplicitConnection.pipeTrace.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            <figure id="graphicalOutput.portTrace.png" float="0">
+               <title>
+                  
+                  <phrase id="graphicalOutput.portTrace.png.de" lang="de">Komprimierte Grafische Darstellung einer Pipeline.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/example1.portTrace.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/example1.portTrace.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+         </section>         
+         <section id="usage.development">
+            <title>
+               
+               <phrase lang="de">Entwerfen und Aufsetzen einer Pipeline</phrase>
+            </title>
+            
+            
+            
+         </section>
+         <section id="usage.processing">
+            <title>
+               
+               <phrase lang="de">Eine Pipeline verarbeiten</phrase>
+            </title>
+            
+         </section>
+         <section id="usage.pipeline">
+            <title>
+               
+               <phrase lang="de">Das Konstrukt <emphasis>&lt;p:pipeline&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="validate1" type="xproc:Validate"/&gt; 
+   &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:step name="validate2" type="xproc:Validate"/&gt; 
+&lt;/xproc:pipeline&gt;
+           </programlisting>
+           <figure id="pipeline.pipeTrace.png" float="0">
+              <title>
+                 
+                 <phrase id="pipeline.pipeTrace.de" lang="de">Pipeline</phrase>
+              </title>
+              <mediaobject>
+                 <imageobject role="html">
+                    <imagedata fileref="figures/io.closed.pipeTrace.png" format="PNG"/>
+                 </imageobject>
+                 <imageobject role="fo">
+                    <imagedata fileref="figures/io.closed.pipeTrace.png" scale="50" format="PNG"/>
+                 </imageobject>
+              </mediaobject>
+           </figure>
+            
+            <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+&lt;/xproc:pipeline&gt;
+            
+            </programlisting>
+            
+            <figure id="usage.pipeline.pipeline.empty.png" float="0">
+               <title>
+                  
+                  <phrase id="pipeline.pipeline.empty.png.de" lang="de">Choose/When/Otherwise Konstrukt mit expiziten Ports am <emphasis>choose</emphasis> Element.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/pipeline.empty.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/pipeline.empty.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            
+            <programlisting format="linespecific">
+            
+...
+Construct 'pipe1' is empty and will be bridged.
+...
+            
+            </programlisting>
+            
+            
+            
+            
+            <programlisting format="linespecific">
+            
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:pipeline name="pipe1.1"&gt;
+        &lt;xproc:step name="step1" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="examples/transformation1.xsl"/&gt;
+        &lt;/xproc:step&gt;
+        &lt;xproc:pipeline name="pipe1.1.1"&gt;
+            &lt;xproc:step name="step1" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation2.xsl"/&gt;
+            &lt;/xproc:step&gt;
+            &lt;xproc:pipeline name="pipe1.1.1.1"&gt;
+                &lt;xproc:step name="step1" type="xproc:XSLT"&gt;
+                    &lt;xproc:input port="stylesheet" href="examples/transformation3.xsl"/&gt;
+                &lt;/xproc:step&gt;
+            &lt;/xproc:pipeline&gt;
+        &lt;/xproc:pipeline&gt;
+    &lt;/xproc:pipeline&gt;
+&lt;/xproc:pipeline&gt;
+            
+            
+            </programlisting>
+            
+            <figure id="usage.pipeline.pipeline.nestedComponents.png" float="0">
+               <title>
+                  
+                  <phrase id="pipeline.pipeline.nestedComponents.png.de" lang="de">Pipeline mit verschachtelten Komponenten</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/pipeline.nestedComponents.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/pipeline.nestedComponents.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            
+         </section>
+         
+         <section id="usage.XSLT">
+            <title>
+               
+               <phrase lang="de">Den Step <emphasis>&lt;p:XSLT&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+               
+&lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+   &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+&lt;/xproc:step&gt;
+               
+            </programlisting>
+
+            
+            <programlisting format="linespecific">
+               
+&lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+  &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+               <emphasis role="bold">&lt;xproc:parameter name="transformer" value="Saxon8"/&gt;</emphasis>
+&lt;/xproc:step&gt;
+               
+            </programlisting>
+            
+            
+
+      <table id="XSLT.exception.table" frame="all">
+         <title>
+            
+            <phrase lang="de">Exceptions des Steps <emphasis>&lt;XSLT&gt;</emphasis></phrase>
+         </title>
+         <tgroup cols="2">
+            <colspec colnum="1" colname="exception" colwidth="1*"/>
+            <colspec colnum="2" colname="annotion" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry colname="exception">
+                     
+                     <para lang="de"> <emphasis role="bold">Exception</emphasis> </para>
+                  </entry>
+                  <entry colname="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">Bemerkung</emphasis> </para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry namest="exception" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">aufgetreten während der Abarbeitung</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      EmptyResultException
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      FileNotFoundException
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                      If href is used to reach file and this file can not be found.
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      TransformerConfiguration
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      Transformer
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      DOM
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry namest="exception" nameend="annotation">
+                     
+                     <para lang="de"> <emphasis role="bold">aufgetreten während der Bestimmung des Transformers</emphasis> </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      TransformerConfiguration
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      Transformer
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+               <row>
+                  <entry colname="exception">
+                    <para> 
+                      DOM
+                    </para>
+                  </entry>
+                  <entry colname="annotation">
+                     <para lang="en">
+                     </para>
+                     <para lang="en">
+                     </para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+
+            
+            <section id="usage.XSLT.resolveTransformer">
+               <title>
+                  
+                  <phrase lang="de">Den gewünschten Transformer festlegen</phrase>
+               </title>
+               
+               
+               
+            </section>
+            
+         </section>
+         <section id="usage.XInclude">
+            <title>
+               
+               <phrase lang="de">Den Step <emphasis>&lt;p:XInclude&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+               
+...
+&lt;xproc:step name="XInclude1" type="xproc:XInclude"/&gt; 
+...
+               
+            </programlisting>
+            
+            <figure id="usage.XInclude.png" float="0">
+               <title>
+                  
+                  <phrase id="XInclude.png.de" lang="de"><emphasis>&lt;p:XInclude&gt;</emphasis></phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/XInclude.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/XInclude.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+         </section>
+         
+         <section id="usage.Load">
+            <title>
+               
+               <phrase lang="de">Den Step <emphasis>&lt;p:Load&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+               
+...
+&lt;xproc:step name="Load1" type="xproc:Load" href="examples/example1.xml"/&gt; 
+...
+               
+            </programlisting>
+
+            <figure id="usage.Load.png" float="0">
+               <title>
+                  
+                  <phrase id="Load.png.de" lang="de"><emphasis>&lt;p:Load&gt;</emphasis></phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/Load.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/Load.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+
+            
+
+            
+
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar net.sf.yax.Yax [options]<emphasis>pipeline file location</emphasis>
+            </programlisting>
+            
+            
+
+            
+
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar 
+       net.sf.yax.Yax 
+       -Dexample.dir=examples 
+       -Dtest.dir=test 
+       -DoutputFilename=output1.xml 
+       example1.xproc
+            </programlisting>
+
+            <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:step name="Load1" type="xproc:Load" href="${examples.dir}/${inputFilename}"/&gt;
+    &lt;xproc:step name="Store1" type="xproc:Store" href="${test.dir}/${outputFilename}"/&gt;
+&lt;/xproc:pipeline&gt;
+            </programlisting>
+
+         </section>
+         
+         <section id="usage.Store">
+            <title>
+               
+               <phrase lang="de">Den Step <emphasis>&lt;p:Store&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+            <programlisting format="linespecific">
+               
+...
+&lt;xproc:step name="Store1" type="xproc:Store" href="examples/output.xml"/&gt; 
+...
+               
+            </programlisting>
+
+            <figure id="usage.Store.png" float="0">
+               <title>
+                  
+                  <phrase id="Store.png.de" lang="de"><emphasis>&lt;p:Store&gt;</emphasis></phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/Store.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/Store.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+
+            
+
+            
+
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar net.sf.yax.Yax [options]<emphasis>pipeline file location</emphasis>
+            </programlisting>
+            
+            
+
+            
+
+            <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar 
+       net.sf.yax.Yax 
+       -Dexample.dir=examples 
+       -Dtest.dir=test 
+       -DoutputFilename=output1.xml 
+       example1.xproc
+            </programlisting>
+
+            <programlisting format="linespecific">
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:step name="Load1" type="xproc:Load" href="${examples.dir}/${inputFilename}"/&gt;
+    &lt;xproc:step name="Store1" type="xproc:Store" href="${test.dir}/${outputFilename}"/&gt;
+&lt;/xproc:pipeline&gt;
+            </programlisting>
+
+         </section>
+
+         <section id="usage.fop">
+            <title>
+               
+               <phrase lang="de">Den Step <emphasis>&lt;p:Fop&gt;</emphasis> zum Erzeugen von PDF-Dateien einsetzen</phrase>
+            </title>
+            
+            
+            <programlisting format="linespecific">
+               
+...
+&lt;xproc:step name="write pdf" type="xproc:Fop"/&gt; 
+...
+               
+            </programlisting>
+            
+            <figure id="usage.pdf.png" float="0">
+               <title>
+                  
+                  <phrase id="pdf.png.de" lang="de"><emphasis>&lt;p:XInclude&gt;</emphasis></phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/pdf.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/pdf.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+
+            
+            
+         </section>
+
+         
+         <section id="usage.choose">
+            <title>
+               
+               <phrase lang="de">Das Konstrukt <emphasis>&lt;p:choose&gt;</emphasis>/<emphasis>&lt;p:when&gt;</emphasis>/<emphasis>&lt;p:otherwise&gt;</emphasis> einsetzen</phrase>
+            </title>
+            
+
+            <programlisting format="linespecific">
+               
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:choose name="choose1" type="xproc:XSLT"&gt;
+      <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput0.xml"/&gt;</emphasis>
+      &lt;xproc:when name="when1" test="/test1"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:when&gt;
+      &lt;xproc:when name="when2" test="/test2"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;            
+      &lt;/xproc:when&gt;
+      &lt;xproc:otherwise name="otherwise"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:otherwise&gt;
+   &lt;/xproc:choose&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+            </programlisting>
+
+
+            <figure id="usage.choose.portAtChoose.png" float="0">
+               <title>
+                  
+                  <phrase id="choose.portAtChoose.png.de" lang="de">Choose/When/Otherwise Konstrukt mit expiziten Ports am <emphasis>choose</emphasis> Element.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/choose.portAtChoose.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/choose.portAtChoose.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            <programlisting format="linespecific">
+
+               
+            </programlisting>
+
+            
+            
+            <programlisting format="linespecific">
+               
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:choose name="choose1" type="xproc:XSLT"&gt;
+      &lt;xproc:when name="when1" test="/test1"&gt;
+         <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput1.xml"/&gt;</emphasis>
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:when&gt;
+      &lt;xproc:when name="when2" test="/test2"&gt;
+         <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput2.xml"/&gt;</emphasis>
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;            
+      &lt;/xproc:when&gt;
+      &lt;xproc:otherwise name="otherwise"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:otherwise&gt;
+   &lt;/xproc:choose&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+            </programlisting>
+
+            <figure id="usage.choose.portAtAllWhen.png" float="0">
+               <title>
+                  
+                  <phrase id="choose.portAtAllWhen.png.de" lang="de">Choose/When/Otherwise Konstrukt mit expiziten Ports an allen <emphasis>when</emphasis> Elementen.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/choose.portAtAllWhen.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/choose.portAtAllWhen.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+                                                
+            
+            
+            <programlisting format="linespecific">
+               
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+   &lt;/xproc:step&gt;
+   &lt;xproc:choose name="choose1" type="xproc:XSLT"&gt;
+      <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput0.xml"/&gt;</emphasis>
+      &lt;xproc:when name="when1" test="/test1"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:when&gt;
+      &lt;xproc:when name="when2" test="/test2"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;            
+      &lt;/xproc:when&gt;
+      &lt;xproc:otherwise name="otherwise"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:otherwise&gt;
+   &lt;/xproc:choose&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+            </programlisting>
+            
+            <figure id="usage.choose.noPort.png" float="0">
+               <title>
+                  
+                  <phrase id="choose.noPort.png.de" lang="de">Choose/When/Otherwise Konstrukt mit expiziten Ports an allen Elementen.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/choose.noPort.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/choose.noPort.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+
+            
+            
+            <programlisting format="linespecific">
+
+<emphasis role="bold">construct 'when1': reference port not found.</emphasis>
+               
+            </programlisting>
+            
+            
+            
+            <programlisting format="linespecific">
+               
+&lt;xproc:pipeline name="pipe1" 
+   xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+   xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+   &lt;xproc:step name="trans1" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation1.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+   &lt;xproc:choose name="choose1" type="xproc:XSLT"&gt;
+      <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput0.xml"/&gt;</emphasis>
+      &lt;xproc:when name="when1" test="/test1"&gt;
+         <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput1.xml"/&gt;</emphasis>
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:when&gt;
+      &lt;xproc:when name="when2" test="/test2"&gt;
+         <emphasis role="bold">&lt;xproc:input port="ref" href="test/chooseInput2.xml"/&gt;</emphasis>
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;            
+      &lt;/xproc:when&gt;
+      &lt;xproc:otherwise name="otherwise"&gt;
+         &lt;xproc:step name="trans2" type="xproc:XSLT"&gt;
+            &lt;xproc:input port="stylesheet" href="test/transformation2.xsl"/&gt; 
+         &lt;/xproc:step&gt;
+      &lt;/xproc:otherwise&gt;
+   &lt;/xproc:choose&gt;
+   &lt;xproc:step name="trans3" type="xproc:XSLT"&gt;
+      &lt;xproc:input port="stylesheet" href="test/transformation3.xsl"/&gt; 
+   &lt;/xproc:step&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+            </programlisting>
+            
+            <figure id="usage.choose.portAtAll.png" float="0">
+               <title>
+                  
+                  <phrase id="choose.portAtAll.png.de" lang="de">Choose/When/Otherwise Konstrukt mit expiziten Ports an allen Elementen.</phrase>
+               </title>
+               <mediaobject>
+                  <imageobject role="html">
+                     <imagedata fileref="figures/choose.portAtAll.png" format="PNG"/>
+                  </imageobject>
+                  <imageobject role="fo">
+                     <imagedata fileref="figures/choose.portAtAll.png" scale="50" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            
+            <programlisting format="linespecific">
+
+
+            </programlisting>
+            
+            
+            </section>
+               <section id="usage.try">
+                  <title>
+                     
+                     <phrase lang="de">Das Konstrukt <emphasis>&lt;p:try&gt;</emphasis>/<emphasis>&lt;p:catch&gt;</emphasis> einsetzen</phrase>
+                  </title>
+                  
+      
+                  <programlisting format="linespecific">
+
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:try name="try1"&gt;
+        &lt;xproc:group name="group1"&gt;
+            &lt;xproc:step name="group1step1" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation2.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:group&gt;
+        &lt;xproc:catch name="catch"&gt;
+            &lt;xproc:step name="catchstep2" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation1.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:catch&gt;
+    &lt;/xproc:try&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+                  </programlisting>
+      
+      
+                  <figure id="usage.try.oneCatch.png" float="0">
+                     <title>
+                        
+                        <phrase id="try.oneCatch.png.de" lang="de">Das Try/Catch construct mit einer einizen catch Klausel</phrase>
+                     </title>
+                     <mediaobject>
+                        <imageobject role="html">
+                           <imagedata fileref="figures/try.oneCatch.png" format="PNG"/>
+                        </imageobject>
+                        <imageobject role="fo">
+                           <imagedata fileref="figures/try.oneCatch.png" scale="50" format="PNG"/>
+                        </imageobject>
+                     </mediaobject>
+                  </figure>
+      
+                  
+                  
+                  <programlisting format="linespecific">
+
+&lt;xproc:pipeline name="pipe1" 
+    xmlns:xproc="http://www.w3.org/TR/2006/xproc/1.0"
+    xmlns:yax="http://opsdesign.eu/yax/1.0"&gt;
+    &lt;xproc:try name="try1"&gt;
+        &lt;xproc:group name="group1"&gt;
+            &lt;xproc:step name="group1step1" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation2.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:group&gt;
+        &lt;xproc:catch name="catch1" exception="EmptyResult"&gt;
+            &lt;xproc:step name="catch1step2" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation1.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:catch&gt;
+        &lt;xproc:catch name="catch2" exception="FileNotFound"&gt;
+            &lt;xproc:step name="catch2step2" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation1.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:catch&gt;
+        &lt;xproc:catch name="catch"&gt;
+            &lt;xproc:step name="catchstep2" type="xproc:XSLT"&gt;
+                &lt;xproc:input port="stylesheet" href="examples/transformation1.xsl"/&gt;
+            &lt;/xproc:step&gt;
+        &lt;/xproc:catch&gt;
+    &lt;/xproc:try&gt;
+&lt;/xproc:pipeline&gt;
+                                             
+                  </programlisting>
+      
+      
+                  <figure id="usage.try.multiCatch.png" float="0">
+                     <title>
+                        
+                        <phrase id="try.multiCatch.png.de" lang="de">Das Try/Catch construct mit einer einizen catch Klausel</phrase>
+                     </title>
+                     <mediaobject>
+                        <imageobject role="html">
+                           <imagedata fileref="figures/try.multiCatch.png" format="PNG"/>
+                        </imageobject>
+                        <imageobject role="fo">
+                           <imagedata fileref="figures/try.multiCatch.png" scale="50" format="PNG"/>
+                        </imageobject>
+                     </mediaobject>
+                  </figure>
+                  
+                  
+
+             </section>
+         </section>
+   </section>
+   <section id="roadmap">
+      <title>
+         
+         <phrase lang="de">Roadmap</phrase>
+      </title>
+      
+      <para lang="de"> Beschreibung ToDo </para>
+   </section>
+   <section id="examples">
+      <title>
+         
+         <phrase lang="de">Beispiele</phrase>
+      </title>
+      <section id="examples.overview">
+         <title>
+            
+            <phrase lang="de">Überblick</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.concatenatedTransformations">
+         <title>
+            
+            <phrase lang="de">Beispiel 1.1 - verkettete Transformationen</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.concatenatedTransformationsWithCatalog">
+         <title>
+            
+            <phrase lang="de">Beispiel 1.2 - verkettete Transformationen (mit der Benutzung eines xml Katalogs)</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.xinclude">
+         <title>
+            
+            <phrase lang="de">Beispiel 2.1. - <emphasis>&lt;p:XInclude&gt;</emphasis> in Aktion</phrase>
+         </title>
+          <para>
+            This is an example with real data coming from the <ulink url="http://docbooksml/sourceforge.net/">docbook.sml project</ulink>.
+            It collects all sections distributed over several files into the output file.
+            Start yax with: 
+         </para>
+         <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar 
+       net.sf.yax.Yax 
+       -Dparam1=passedFromProgramStart 
+       example7.xproc
+       examples/xincludeArticle.xml
+       test/output1.xml
+         </programlisting>
+      </section>
+      <section id="example.xincludeWithCatalog">
+         <title>
+            
+            <phrase lang="de">Beispiel 2.1. - <emphasis>&lt;p:XInclude&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+      </section>
+      <section id="example.chooseProcessWhen">
+         <title>
+            
+            <phrase lang="de">Beispiel 3.1 - <emphasis>&lt;p:try&gt;/&lt;p:group&gt;/&lt;p:catch&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.chooseProcessOtherwise">
+         <title>
+            
+            <phrase lang="de">Beispiel 3.2 - <emphasis>&lt;p:try&gt;/&lt;p:group&gt;/&lt;p:catch&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.tryGeneralCatch">
+         <title>
+            
+            <phrase lang="de">Beispiel 4.1 - <emphasis>&lt;p:Load&gt;/&lt;p:XInclude&gt;/&lt;p:Store&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.tryParticularCatch">
+         <title>
+            
+            <phrase lang="de">Beispiel 4.2 - <emphasis>&lt;p:Load&gt;/&lt;p:XInclude&gt;/&lt;p:Store&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.innerAndOuterIO">
+         <title>
+            
+            <phrase lang="de">Beispiel 5.1 - Using Inner and Outer I/O together</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.onlyInnerIO">
+         <title>
+            
+            <phrase lang="de">Beispiel 5.2 - Using only Inner I/O</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.parameterToXSLT">
+         <title>
+            
+            <phrase lang="de">Beispiel 6 - Übergabe von (substituierten) Transformationsparameters an <emphasis>&lt;p:XSLT&gt;</emphasis></phrase>
+         </title>
+         <para>
+          This examples shows how to
+         </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                pass a parameter from the program start through the xproc script to the xsl script (param1)
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                pass a parameter from xproc script to the xsl script (param2)
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                use parameters default value because nothing passed to (param3)
+              </para>
+            </listitem>
+          </itemizedlist>
+          <para>
+            Start yax with: 
+         </para>
+         <programlisting format="linespecific">
+# java -classpath lib/yax-0.7.jar 
+       net.sf.yax.Yax 
+       -Dparam1=passedFromProgramStart 
+       example6.xproc
+       examples/example1.xml
+       test/output1.xml
+         </programlisting>
+          <para>
+            The output file test/output1.xml will consist of: 
+         </para>
+	       <programlisting format="linespecific">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;result&gt;
+    &lt;param1&gt;passedFromProgramStart&lt;/param1&gt;
+    &lt;param2&gt;${param2}&lt;/param2&gt;
+    &lt;param3&gt;notPassedToScript&lt;/param3&gt;
+&lt;/result&gt;
+         </programlisting>
+          <para>
+            Consider that param1 comes from program start, 
+            param2 comes (staticly) from xproc script and 
+            param3 is the default value from the xsl script. 
+         </para>
+      </section>
+      <section id="example.multipleInputs">
+         <title>
+            
+            <phrase lang="de">Beispiel 7 - processing multiple input documents</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="example.fop">
+         <title>
+            
+            <phrase lang="de">Beispiel 8 - <emphasis>&lt;p:PDF&gt;/&lt;p:FOP&gt;</emphasis> in Aktion</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+   </section>
+   <section id="tutorial">
+      <title>
+         
+         <phrase lang="de">Tutorial</phrase>
+      </title>
+      <section id="tutorial.simplePipeline">
+         <title>
+            
+            <phrase lang="de">Eine einfache Pipeline</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="tutorial.additionalOutput">
+         <title>
+            
+            <phrase lang="de">Eine Pipeline mit zusätzlicher Ausgabe</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="tutorial.additionalInput">
+         <title>
+            
+            <phrase lang="de">Eine Pipeline mit zusätzlicher Datenquelle</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+      <section id="tutorial.switchingComponents">
+         <title>
+            
+            <phrase lang="de">Eine Pipeline mit Choose/When/Otherwise und Try/Catch</phrase>
+         </title>
+         
+         <para lang="de"> ToDo </para>
+      </section>
+   </section>
+   <section id="links">
+      <title>
+         
+         <phrase lang="de">Links</phrase>
+      </title>
+      
+      <para lang="de"> Beschreibung ToDo </para>
+   </section>
+   <section id="legal">
+      <title>
+         
+         <phrase lang="de">Rechtlicher Rahmen</phrase>
+      </title>
+      
+      <para lang="de">Software und Dokumenation wird unter den Bedingungen der GNU LGPL Lizenz (see
+            <ulink url="http://www.gnu.org/copyleft/lesser.html">http://www.gnu.org/copyleft/lesser.html</ulink>) unter Ausschluss jeglicher Garantien
+         und Gewährleistungen veröffentlicht.</para>
+      <para>Copyright © 2006 - 2008 <ulink url="mailto:joerg.moebius@opsdesign.de">joerg.moebius@opsdesign.de</ulink>
+      </para>
+   </section>
+   <section id="poweredBy">
+      <title>Powered by</title>
+      <para>
+         <ulink url="http://sourceforge.net">
+            <inlinemediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/sflogo.php.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/sflogo.php.png" scale="50" format="PNG"/>
+               </imageobject>
+               <textobject>
+                  <phrase>sourceforge logo</phrase>
+               </textobject>
+            </inlinemediaobject>
+         </ulink>
+      </para>
+      <para>
+         <ulink url="http://docbook.sourceforge.net/">
+            <inlinemediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/docbook-website-logo.png" format="PNG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/docbook-website-logo.png" scale="50" format="PNG"/>
+               </imageobject>
+               <textobject>
+                  <phrase>sourceforge logo</phrase>
+               </textobject>
+            </inlinemediaobject>
+         </ulink>
+      </para>
+      <para>
+         <ulink url="http://xmlgraphics.apache.org/fop//">
+            <inlinemediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/apache-fop-logo.jpg" format="JPG"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/apache-fop-logo.jpg" scale="50" format="JPG"/>
+               </imageobject>
+               <textobject>
+                  <phrase>sourceforge logo</phrase>
+               </textobject>
+            </inlinemediaobject>
+         </ulink>
+      </para>
+      <para>
+         <ulink url="http://www.saxonica.com/index.html">
+            <inlinemediaobject>
+               <imageobject role="html">
+                  <imagedata fileref="figures/saxonica_logo.gif" format="GIF"/>
+               </imageobject>
+               <imageobject role="fo">
+                  <imagedata fileref="figures/saxonica_logo.gif" scale="50" format="GIF"/>
+               </imageobject>
+               <textobject>
+                  <phrase>sourceforge logo</phrase>
+               </textobject>
+            </inlinemediaobject>
+         </ulink>
+      </para>
+   </section>
+</article>

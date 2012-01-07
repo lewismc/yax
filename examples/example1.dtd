@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><!ELEMENT a (#PCDATA | a | aa | aaa)*><!ATTLIST a	tes1 CDATA #REQUIRED	test2 CDATA #REQUIRED><!ELEMENT aa (#PCDATA | aaa)*><!ATTLIST aa	test3 CDATA #REQUIRED	test4 CDATA #REQUIRED><!ELEMENT aaa (#PCDATA | a)*><!ATTLIST aaa	test5 CDATA #REQUIRED	test6 CDATA #REQUIRED>

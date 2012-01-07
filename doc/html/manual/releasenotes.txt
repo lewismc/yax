@@ -1,0 +1,296 @@
+
+yax - an XProc (XML Pipeline) Implementation
+
+Release Notes
+
+   2008-03-03
+     _________________________________________________________________
+   
+0.11.0 / 2008-03-03
+
+   see Change Log.
+   
+0.10 / 2008-03-03
+
+   Release 0.10 skipped.
+   
+0.9 / 2007-02-08
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [1]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+   steps
+          + FOP (creates PDF files) created.
+          + PDF (currently ident with FOP) created.
+          + XSLT: now xml catalog aware
+          + XInclude: now xml catalog aware
+            
+   container
+          +
+            
+   others
+          + xml catalog awareness (by using Norman Walsh's xml commons
+            resolver)
+            adapter for apache's commons logger (due to FOP)
+          + examples revised / extended.
+            
+   documentation
+          +
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implementation of soap interface
+       
+0.8 / 2007-01-31
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [2]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+   steps
+          + steps (especially XSLT, Load, Store) stabilized.
+            
+   container
+          + container (especially try,choose) stabilized.
+            
+   others
+          + ant interface created.
+            yax can be used as an ant task and provides nested fileset
+            feature. (applying a script an multiple input documents)
+          + logger system created.
+            Log4jLogger is default. ConsoleLogger is used when
+            Log4jLogger is not available / not desired. in ant mode all
+            Loggings are redirected to ant.
+          + some new preferences (see preferences.xml) created.
+          + examples revised / extended.
+            
+   documentation
+          +
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implementation of soap interface
+       
+0.7 / 2007-01-13
+
+   what's new
+     * Problem with
+       Error message : net.sf.yax.types not valid
+       configuration exception : net.sf.yax.types does not appear to be a
+       valid package
+       is solved.
+       
+0.6 / 2007-01-11
+
+   what's new
+     * Release 0.6 has the same content as release 0.5. It is launched
+       due to a corrupted zip file in release 0.5.
+       
+0.5 / 2007-01-11
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [3]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+   steps
+          + XInclude created.
+          + Load created.
+          + Store created.
+          + XSLT parameter passing implemented.
+            
+   constructs
+          +
+            
+   others
+          + run without passing input and output document location (run
+            with Load and Store)
+            baseUri as (possible) base for all location related
+            operations.
+            properties / property files implemented.
+            first attempt of an expression language implemented.
+            preferences extended.
+            
+   documentation
+          + section 'using XInclude...' created.
+          + section 'using Load...' created.
+          + section 'using Load...' created.
+          + sections 'Configuration...' and 'Usage...' revised and
+            extended.
+          + Feature, status table actualized and revised.
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implemenation of all constructs and steps
+     * implementation of interfaces
+     * implementation of infrastructur
+       
+0.4 / 2007-01-07
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [4]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+   steps
+          + XSLT
+            messages of transformer resolving revised.
+            
+   constructs
+          + Choose/When/Otherwise
+            implemented.
+          + Try/Group/Catch
+            implemented.
+          + bridging of empty constructs
+            
+   others
+          + extension mechanism
+            built-in components now in a jar
+            seeking for custom components in the directory named custom
+          + preferences redesigned
+          + several new preferences (see preferences file)
+          + pipe trace graph now differenciates between implicit and
+            explicit ports and connections
+            
+   documentation
+          + section 'using pipeline' created
+          + section 'using XSLT' created
+          + section 'using Choose/When/Otherwise' created
+          + section 'using Try/Group/Catch' created
+          + section 'approach/extension mechanism' created
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implemenation of all constructs and steps
+     * implementation of interfaces
+     * implementation of infrastructur
+       
+0.3 / 2007-01-03
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [5]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+   steps
+          + Validate
+            set to interims implementation
+            
+   constructs
+          +
+            
+   others
+          + output of pipelineConfig now analog traces.
+          + automaticOutput of pipeTrace and portTrace know considered by
+            application.
+            
+   documentation
+          + revised and extended
+            sections 'status', 'approach' revised.
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implemenation of all constructs and steps
+     * implementation of interfaces
+     * implementation of infrastructur
+       
+0.2 / 2007-01-01
+
+   how to obtain and install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [6]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+          + documentation revised and extended
+            sections 'what is', 'status', 'quick start' revised.
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implemenation of all constructs and steps
+     * implementation of interfaces
+     * implementation of infrastructur
+       
+0.1 / 2006-12-31
+
+   how to obtain an install?
+   
+   you can find the complete documentation
+     * in the installation directory in the subdirectory 'doc/build'
+     * or at [7]http://yax.sourceforge.net
+       
+   what's new
+     * list of news
+       
+          + first release
+            experimental release to give an impression.
+            
+   known issues
+   
+   This is an early release. If you expect everything to work perfectly,
+   you will surely be let down. This list covers some of the known
+   issues. If you figure out other issues (feature request and/or Bugs)
+   please report it to the project site.
+     * implemenation of all constructs and steps
+     * implementation of interfaces
+     * implementation of infrastructur
+
+References
+
+   1. http://yax.sourceforge.net/
+   2. http://yax.sourceforge.net/
+   3. http://yax.sourceforge.net/
+   4. http://yax.sourceforge.net/
+   5. http://yax.sourceforge.net/
+   6. http://yax.sourceforge.net/
+   7. http://yax.sourceforge.net/

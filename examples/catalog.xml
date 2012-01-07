@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<rewriteSystem 
+		systemIdStartString="http://www.oasis-open.org/" 
+		rewritePrefix="." />
+	<rewriteURI 
+		uriStartString="http://www.oasis-open.org/" 
+		rewritePrefix="." />
+	<rewriteURI
+		uriStartString="http://www.opsdesign.eu/"
+		rewritePrefix=".." />
+	<rewriteSystem
+		systemIdStartString="http://www.opsdesign.eu/"
+		rewritePrefix=".." />
+</catalog>

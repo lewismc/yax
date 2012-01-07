@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><article>
+   <articleinfo><title>
+          yax - an XProc (XML Pipeline) Implementation
+         
+      </title><subtitle>Release Notes</subtitle><pubdate>2008-03-03</pubdate></articleinfo><section><title>0.11.0 / 2008-03-03</title>
+            	<para>see Change Log.</para>
+            </section><section><title>0.10 / 2008-03-03</title>
+            	<para>Release 0.10 skipped.</para>
+            </section><section><title>0.9 / 2007-02-08</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>FOP (creates PDF files) created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>PDF (currently ident with FOP) created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>XSLT: now xml catalog aware</para>
+                        </listitem>
+                        <listitem>
+                           <para>XInclude: now xml catalog aware</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>container</title>
+                        <listitem>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            xml catalog awareness (by using Norman Walsh's xml commons resolver) 
+                           </para>
+                           <para>
+                            adapter for apache's commons logger (due to FOP)
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            examples revised / extended. 
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implementation of soap interface</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.8 / 2007-01-31</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>steps (especially XSLT, Load, Store) stabilized.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>container</title>
+                        <listitem>
+                           <para>container (especially try,choose) stabilized.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            ant interface created.
+                           </para>
+                           <para>
+                            yax can be used as an ant task and provides nested fileset feature.
+                            (applying a script an multiple input documents)
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            logger system created. 
+                           </para>
+                           <para>
+                            Log4jLogger is default. 
+                            ConsoleLogger is used when Log4jLogger is not available / not desired.
+                            in ant mode all Loggings are redirected to ant. 
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            some new preferences (see preferences.xml) created. 
+                           </para>
+                        </listitem>
+                        <listitem>
+                           <para>
+                            examples revised / extended. 
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>
+                           </para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implementation of soap interface</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.7 / 2007-01-13</title>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>
+                      Problem with 
+                     </para>
+                     <para>
+                      Error message : net.sf.yax.types not valid
+                     </para>
+                     <para>
+                      configuration exception : net.sf.yax.types does not appear to be a valid package
+                     </para>
+                     <para>
+                      is solved. 
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.6 / 2007-01-11</title>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>
+                      Release 0.6 has the same content as release 0.5.
+                      It is launched due to a corrupted zip file in release 0.5. 
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.5 / 2007-01-11</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>XInclude created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Load created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Store created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>XSLT parameter passing implemented.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para/>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>
+                            run without passing input and output document location (run with Load and Store)
+                           </para>
+                           <para>
+                            baseUri as (possible) base for all location related operations. 
+                           </para>
+                           <para>
+                            properties / property files implemented.
+                           </para>
+                           <para>
+                            first attempt of an expression language implemented.
+                           </para>
+                           <para>
+                            preferences extended.
+                           </para>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>section 'using XInclude...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Load...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Load...' created.</para>
+                        </listitem>
+                        <listitem>
+                           <para>sections 'Configuration...' and 'Usage...' revised and extended.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Feature, status table actualized and revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.4 / 2007-01-07</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>XSLT</para>
+                           <para>messages of transformer resolving revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para>Choose/When/Otherwise</para>
+                           <para>implemented.</para>
+                        </listitem>
+                        <listitem>
+                           <para>Try/Group/Catch</para>
+                           <para>implemented.</para>
+                        </listitem>
+                        <listitem>
+                           <para>bridging of empty constructs</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>extension mechanism</para>
+                           <para>built-in components now in a jar</para>
+                           <para>seeking for custom components in the directory named custom</para>
+                        </listitem>
+                        <listitem>
+                           <para>preferences redesigned</para>
+                        </listitem>
+                        <listitem>
+                           <para>several new preferences (see preferences file)</para>
+                        </listitem>
+                        <listitem>
+                           <para>pipe trace graph now differenciates between implicit and explicit ports and connections</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>section 'using pipeline' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using XSLT' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Choose/When/Otherwise' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'using Try/Group/Catch' created</para>
+                        </listitem>
+                        <listitem>
+                           <para>section 'approach/extension mechanism' created</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.3 / 2007-01-03</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <title>steps</title>
+                        <listitem>
+                           <para>Validate</para>
+                           <para>set to interims implementation</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>constructs</title>
+                        <listitem>
+                           <para/>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>others</title>
+                        <listitem>
+                           <para>output of pipelineConfig now analog traces.</para>
+                        </listitem>
+                        <listitem>
+                           <para>automaticOutput of pipeTrace and portTrace know considered by application.</para>
+                        </listitem>
+                     </itemizedlist>
+                     <itemizedlist>
+                        <title>documentation</title>
+                        <listitem>
+                           <para>revised and extended</para>
+                           <para>sections 'status', 'approach' revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.2 / 2007-01-01</title>
+               <itemizedlist>
+                  <title>how to obtain and install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <listitem>
+                           <para>documentation revised and extended</para>
+                           <para>sections 'what is', 'status', 'quick start' revised.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </section><section><title>0.1 / 2006-12-31</title>
+               <itemizedlist>
+                  <title>how to obtain an install?</title>
+                  <para> you can find the complete documentation </para>
+                  <listitem>
+                     <para>in the installation directory in the subdirectory 'doc/build'</para>
+                  </listitem>
+                  <listitem>
+                     <para>or at <ulink url="http://yax.sourceforge.net">http://yax.sourceforge.net</ulink>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>what's new</title>
+                  <listitem>
+                     <para>list of news</para>
+                     <itemizedlist>
+                        <listitem>
+                           <para>first release</para>
+                           <para>experimental release to give an impression.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>known issues</title>
+                  <para>This is an early release. If you expect everything to work perfectly, you
+                     will surely be let down. This list covers some of the known issues. If you
+                     figure out other issues (feature request and/or Bugs) please report it to the
+                     project site.</para>
+                  <listitem>
+                     <para>implemenation of all constructs and steps</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of interfaces</para>
+                  </listitem>
+                  <listitem>
+                     <para>implementation of infrastructur</para>
+                  </listitem>
+               </itemizedlist>
+            </section>
+   
+   
+      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+</article>

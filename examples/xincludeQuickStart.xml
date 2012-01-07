@@ -1,0 +1,33 @@
+<section id="quickStart">
+   <title>Quickstart</title>
+   <section id="quickstart.prerequisites">
+      <title>Prerequisites</title>
+      <para> The following packages have to be available (installed) on an arbitrary location: </para>
+      <para>
+         <itemizedlist>
+            <listitem>
+               <para> package 1(Version xxx or above) </para>
+            </listitem>
+            <listitem>
+               <para> package 1(Version xxx or above) </para>
+            </listitem>
+         </itemizedlist>
+      </para>
+   </section>
+   <section id="quickstart.installation">
+      <title>Installation</title>
+      <para> Check out from ?? or download exampleProject1 from <ulink
+            url="http://exampleProject1.example.org">http://exampleProject1.example.org</ulink>
+         and unzip the file to an arbitrary install to
+            ?<emphasis>&lt;exampleProject1-installation-directory&gt;</emphasis>. </para>
+      <para> some trailing words. </para>
+   </section>
+   <section id="quickstart.configuration">
+      <title>Configuration</title>
+      <para> Description ToDo </para>
+   </section>
+   <section id="quickstart.firstRun">
+      <title>First Run</title>
+      <para> Description ToDo </para>
+   </section>
+</section>

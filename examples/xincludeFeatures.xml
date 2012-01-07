@@ -1,0 +1,38 @@
+<section id="features">
+   <title>Features</title>
+   <table id="features.table" frame="all">
+      <title>Features</title>
+      <tgroup cols="2">
+         <colspec colnum="1" colname="feature" colwidth="1*"/>
+         <colspec colnum="2" colname="description" colwidth="1*"/>
+         <thead>
+            <row>
+               <entry colname="feature">
+                  <para>Feature</para>
+               </entry>
+               <entry>
+                  <para>Description</para>
+               </entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry colname="feature">
+                  <para> Feature1 </para>
+               </entry>
+               <entry colname="description">
+                  <para> Description of Feature1 </para>
+               </entry>
+            </row>
+            <row>
+               <entry colname="feature">
+                  <para> Feature2 </para>
+               </entry>
+               <entry colname="description">
+                  <para> Description of Feature2 </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

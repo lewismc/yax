@@ -1,0 +1,13 @@
+<section id="what.is">
+   <title id="what.is.title">What is exampleProject1?</title>
+   <para> Intro of Brief Description of exampleProject1. </para>
+   <mediaobject>
+      <imageobject role="html">
+         <imagedata fileref="figures/exampleProject1-bigPicture-en.png" format="PNG"/>
+      </imageobject>
+      <imageobject role="fo">
+         <imagedata fileref="figures/exampleProject1-bigPicture-en.png" scale="50" format="PNG"/>
+      </imageobject>
+   </mediaobject>
+   <para> May be some trailing words. </para>
+</section>

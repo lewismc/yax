@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<a tes1="1" test2="2">text of a
+    <aaa test5="5" test6="6">
+        text of aaa line1
+        text of aaa line2
+    </aaa>
+    <aaa test5="5" test6="6">
+        text of aaa line1
+        text of aaa line2
+    </aaa>
+    <aa test3="3" test4="4">text of aa
+        <aaa test5="5" test6="6">
+            text of aaa line1
+            text of aaa line2
+        </aaa>
+    </aa>
+    <a tes1="1" test2="2">
+        <aa test3="3" test4="4">
+            <aaa test5="5" test6="6">
+                <a tes1="1" test2="2">
+                    <aa test3="3" test4="4">
+                        <aaa test5="5" test6="6">
+                        </aaa>
+                    </aa>
+                </a>
+            </aaa>
+        </aa>
+    </a>
+</a>

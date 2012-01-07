@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="net.sf.yax.ant.runExamples" default="all" basedir=".">
+	<property name="lib.dir" value="./lib"/>
+	<path id="xalan.classpath">
+		<pathelement location="${lib.dir}/xalan.jar"/>
+		<pathelement location="${lib.dir}/serializer.jar"/>
+		<pathelement location="${lib.dir}/xercesImpl.jar"/>
+		<pathelement location="${lib.dir}/xml-apis.jar"/>
+		<pathelement location="${lib.dir}/xsltc.jar"/>
+	</path>
+	<property name="fop.dir" value="${lib.dir}/fop-1.0"/>
+	<path id="fop.classpath">
+		<pathelement location="${fop.dir}/build/fop.jar"/>
+		<pathelement location="${fop.dir}/lib/avalon-framework-4.2.0.jar"/>
+		<pathelement location="${fop.dir}/lib/batik-all-1.7.jar"/>
+		<pathelement location="${fop.dir}/lib/commons-io-1.3.1.jar"/>
+		<pathelement location="${fop.dir}/lib/commons-logging-1.0.4.jar"/>
+		<pathelement location="${fop.dir}/lib/serializer-2.7.0.jar"/>
+		<pathelement location="${fop.dir}/lib/xalan-2.7.0.jar"/>
+		<pathelement location="${fop.dir}/lib/xercesImpl-2.7.1.jar"/>
+		<pathelement location="${fop.dir}/lib/xml-apis-1.3.04.jar"/>
+		<pathelement location="${fop.dir}/lib/xml-apis-ext-1.3.04.jar"/>
+		<pathelement location="${fop.dir}/lib/xmlgraphics-commons-1.4.jar"/>
+	</path>
+	<path id="yax.classpath">
+		<pathelement location="."/>
+		<pathelement location="lib"/>
+		<pathelement location="configuration"/>
+		<pathelement location="custom"/>
+		<pathelement location="lib/de.opsdesign.yax.core.jar"/>
+		<pathelement location="lib/de.opsdesign.yax.ant.jar"/>
+		<pathelement location="lib/xml-resolver-1.2.jar"/>
+		<path refid="xalan.classpath"/>
+		<path refid="fop.classpath"/>
+	</path>
+	<taskdef name="yax" classname="de.opsdesign.yax.tools.YaxTask">
+		<classpath refid="yax.classpath"/>
+	</taskdef>
+	<target name="all" depends="clear,runExample1.1,runExample1.2,runExample2.1,runExample2.2,runExample3.1,runExample3.2,runExample4.1,runExample4.2,runExample5.1,runExample5.2,runExample6,runExample7,runExample8">
+	</target>
+	<target name="runExample1.1" description="transforms an input file with concatenated transformation steps">
+		<yax in="examples/example1.1.xml" out="test/example1.1.output.ant.xml" script="examples/example1.1.xproc">
+		</yax>
+	</target>
+	<target name="runExample1.2" description="transforms an input file with concatenated transformation steps (and applies an xml catalog at the same time)">
+		<yax in="examples/example1.2.xml" out="test/example1.2.output.ant.xml" script="examples/example1.2.xproc">
+		</yax>
+	</target>
+	<!--
+	<target name="runExample2.1" description="resolves Xinclude entries">
+		<yax in="examples/xincludeArticle.local.xml" out="test/example2.output.ant.xml" script="examples/example2.xproc">
+		</yax>
+	</target>
+	-->
+	<target name="runExample2.2" description="resolves Xinclude entries (and applies an xml catalog at the same time)">
+		<yax in="examples/xincludeArticle.URL.xml" out="test/example2.output.ant.xml" script="examples/example2.xproc">
+		</yax>
+	</target>
+	<target name="runExample3.1" description="'choose' finds and processes a valid when clause. (when clauses overrides with own ref ports the super ref port of choose.)">
+		<yax in="examples/example1.1.xml" out="test/example3.1.output.ant.xml" script="examples/example3.1.xproc">
+		</yax>
+	</target>
+	<target name="runExample3.2" description="'choose' processes otherwise clause due to no when clause is valid. (when clauses have no own ref ports, so uses the super ref port of choose.)">
+		<yax in="examples/example3.xml" out="test/example3.2.output.ant.xml" script="examples/example3.2.xproc">
+		</yax>
+	</target>
+	<target name="runExample4.1" description="'try' detectes an exception and processes the (general) catch clause">
+		<yax in="examples/example1.1.xml" out="test/example4.1.output.ant.xml" script="examples/example4.1.xproc">
+		</yax>
+	</target>
+	<target name="runExample4.2" description="'try' detectes an exception and processes a particular catch clause">
+		<yax in="examples/example1.1.xml" out="test/example4.2.output.ant.xml" script="examples/example4.2.xproc">
+		</yax>
+	</target>
+	<target name="runExample5.1" description="uses inner and outer I/O">
+		<yax script="examples/example5.xproc">
+			<property name="examples.dir" value="examples"/>
+			<property name="inputFilename" value="xincludeArticle.local.xml"/>
+			<property name="test.dir" value="test"/>
+			<property name="outputFilename" value="example5.output.ant.xml"/>
+		</yax>
+	</target>
+	<target name="runExample5.2" description="uses only inner I/O">
+		<yax noOutputfile="yes" script="examples/example5.xproc">
+			<property name="examples.dir" value="examples"/>
+			<property name="inputFilename" value="xincludeArticle.local.xml"/>
+			<property name="test.dir" value="test"/>
+			<property name="outputFilename" value="example5.output.ant.xml"/>
+		</yax>
+	</target>
+	<target name="runExample6" description="passes parameters through xproc script to XSLT script">
+		<yax in="examples/example1.1.xml" out="test/example6.output.ant.xml" script="examples/example6.xproc">
+			<property name="param2" value="valueOfParam2"/>
+		</yax>
+	</target>
+	<target name="runExample7" description="applies an xproc script to multiple input documents">
+		<yax script="examples/example1.1.xproc" outDir="test" outPattern="${inputName}.out.${inputExtension}">
+			<fileset dir="examples" includes="
+	        example*.xml
+	        " excludes="
+	        example2.xml
+	        "/>
+		</yax>
+	</target>
+	<target name="runExample8" description="transforms XML to XML-FO and writes a PDF file">
+		<yax noOutputfile="yes" script="examples/example8.xproc">
+			<property name="examples.data.dir" value="examples/fop/xml"/>
+			<property name="examples.script.dir" value="examples/fop/xslt"/>
+			<property name="test.dir" value="test"/>
+			<property name="xmlInput" value="projectteam.xml"/>
+			<property name="xml2foScript" value="projectteam2fo.xsl"/>
+			<property name="pdfOutput" value="example8.ant.pdf"/>
+		</yax>
+	</target>
+	<target name="clear" description="deletes all former ant output within test directory">
+		<delete>
+			<fileset dir="examples" includes="
+        *Trace.png
+        "/>
+		</delete>
+		<delete>
+			<fileset dir="test" includes="
+        *output.ant.xml,
+        *Trace.png
+        "/>
+		</delete>
+	</target>
+</project>

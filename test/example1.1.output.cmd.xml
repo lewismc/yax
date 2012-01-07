@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><d>text of a
+    <ddd>
+        text of aaa line1
+        text of aaa line2
+    </ddd>
+    <ddd>
+        text of aaa line1
+        text of aaa line2
+    </ddd>
+    <dd>text of aa
+        <ddd>
+            text of aaa line1
+            text of aaa line2
+        </ddd>
+    </dd>
+    <d>
+        <dd>
+            <ddd>
+                <d>
+                    <dd>
+                        <ddd>
+                        </ddd>
+                    </dd>
+                </d>
+            </ddd>
+        </dd>
+    </d>
+</d>

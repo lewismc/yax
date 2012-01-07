@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <article xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:include href="examples/xIncludeArticleInfo.xml"/>
+      <xi:include href="examples/xIncludeWhatIs.xml"/>
+      <xi:include href="examples/xIncludeQuickStart.xml"/>
+      <xi:include href="examples/xIncludeFeatures.xml"/>
+      <xi:include href="examples/xIncludeReference.xml"/>
+      <xi:include href="examples/xIncludeRoadmap.xml"/>
+      <xi:include href="examples/xIncludeExamples.xml"/>
+      <xi:include href="examples/xIncludeTutorial.xml"/>
+      <xi:include href="examples/xIncludeLinks.xml"/>
+      <xi:include href="examples/xIncludeLegal.xml"/>
+      <xi:include href="examples/xIncludePoweredBy.xml"/>
+      
+  </article>

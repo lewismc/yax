@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<rewriteURI
+		uriStartString="http://docbooksml.sf.net/temp/"
+		rewritePrefix="../temp/" />
+	<rewriteSystem
+		systemIdStartString="http://docbooksml.sf.net/temp/"
+		rewritePrefix="../temp/" />
+	<rewriteURI
+		uriStartString="http://docbooksml.sf.net/localScripts/"
+		rewritePrefix="../" />
+	<rewriteSystem
+		systemIdStartString="http://docbooksml.sf.net/localScripts/"
+		rewritePrefix="../" />
+</catalog>

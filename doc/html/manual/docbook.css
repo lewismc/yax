@@ -1,0 +1,15 @@
+/* (http://www.december.com/html/spec/color0.html) */
+
+@import url("./css/maven-base.css");
+@import url("./css/maven-theme.css");
+@import url("./css/site.css");
+
+div.commandArea {
+  position: relative;
+  top: 4px;
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  height: 1.5em;
+  widh:100%;
+}

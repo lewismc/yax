@@ -23,10 +23,21 @@
   <!-- ========================= -->
   <!-- root element: html -->
   <!-- ========================= -->
-  <xsl:template match="@style | @script | @link" />
-  
-  <xsl:template match="type | langauge | src | ">
-    <xsl:apply-templates select="@*|node()"/>
-  </xsl:template>
-  
+<xsl:template match="/">
+  <Legislation DocumentURI="@  " IdURI="@" NumberOfProvisions="@" xsi:schemaLocation="http://www.legislation.gov.uk/schema/legislation.xsd" SchemaVersion="1.0" RestrictExtent="S" RestrictStartDate="@" xhtml:base="@">
+ <ukm:Metadata>
+  <dc:identifier>@ </dc:identifier>
+  <dc:title>@head:title</dc:title>
+  <dc:description>@head:meta:content</dc:description>
+  <dc:type>@head:meta:content</dc:type>
+  <dc:format>@head:meta:content</dc:format>
+  <dc:language>@ </dc:language>
+  <dc:publisher>@ </dc:publisher>
+  <dc:modified>@ </dc:modified>
+  <dct:valid>@ </dct:valid>
+ </ukm:Metadata>
+
+
+  </Legislation>
+</xsl:template>
 </xsl:stylesheet>
